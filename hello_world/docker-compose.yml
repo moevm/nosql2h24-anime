@@ -1,0 +1,38 @@
+services:
+  backend:
+    container_name: anime-backend
+    image: ${DOCKER_REGISTRY-}backend
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=8080
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    ports: 
+      - "5000:8080"
+    networks:
+      - backend-net
+
+  database:
+    container_name: anime-database
+    image: mongo:7.0.7
+    hostname: mongodb
+    environment:
+      - MONGO_HOST=mongodb
+      - MONGO_PORT=27017
+      - MONGO_INITDB_ROOT_USERNAME=username
+      - MONGO_INITDB_DATABASE=anime_db
+      - MONGO_INITDB_ROOT_PASSWORD=password
+    restart: always
+    volumes:
+      - mongodb-data:/data/db
+    command: mongod --quiet
+    networks:
+      - backend-net
+
+
+volumes:
+  mongodb-data:
+  
+networks:
+  backend-net:
