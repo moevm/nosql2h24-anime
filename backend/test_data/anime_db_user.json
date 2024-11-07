@@ -1,0 +1,325 @@
+[{
+  "_id": {
+    "$oid": "671aacc86cf54cffac86b01e"
+  },
+  "login": "Osaka",
+  "email": "Osaka2003@mail.com",
+  "role": "user",
+  "password": "123",
+  "registred_at": {
+    "$date": {
+      "$numberLong": "1729801416198"
+    }
+  },
+  "rates_count": {
+    "$numberInt": "0"
+  },
+  "reviews_count": {
+    "$numberInt": "0"
+  },
+  "account_logs": [
+    {
+      "_id": {
+        "$oid": "671ab0466cf54cffac86b021"
+      },
+      "date": {
+        "$date": {
+          "$numberLong": "1729802310055"
+        }
+      },
+      "type": "rename",
+      "description": "Логин изменён на newOsaka"
+    }
+  ],
+  "updated_at": {
+    "$date": {
+      "$numberLong": "1729802310058"
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "6723b4a2c39d0363592db52b"
+  },
+  "login": "newOsaka",
+  "email": "Osaka2002@mail.com",
+  "role": "user",
+  "password": "123",
+  "registred_at": {
+    "$date": {
+      "$numberLong": "1729801416198"
+    }
+  },
+  "rates_count": {
+    "$numberInt": "0"
+  },
+  "reviews_count": {
+    "$numberInt": "0"
+  },
+  "account_logs": [
+    {
+      "_id": "233ca3fb4a4fgc7fa9f5ea25",
+      "date": {
+        "$date": {
+          "$numberLong": "1729801416198"
+        }
+      },
+      "type": "create",
+      "description": "Аккаунт создан"
+    },
+    {
+      "_id": {
+        "$oid": "671ab0466cf54cffac86b021"
+      },
+      "date": {
+        "$date": {
+          "$numberLong": "1729802310055"
+        }
+      },
+      "type": "rename",
+      "description": "Логин изменён на newOsaka"
+    }
+  ],
+  "updated_at": {
+    "$date": {
+      "$numberLong": "1729802310058"
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "6723bf69c39d0363592db535"
+  },
+  "photo": "https://i.pinimg.com/originals/22/66/e9/2266e99326949dc3145670df47999ad3.jpg",
+  "login": "Osaka1998",
+  "email": "Osaka2004@mail.com",
+  "role": "admin",
+  "password": "admin",
+  "registred_at": "2024-09-18T15:10:50",
+  "updated_at": "2024-09-18T15:10:50",
+  "rates_count": {
+    "$numberInt": "4"
+  },
+  "rates": [
+    {
+      "_id": "233ca3fb4a4fgc7fa9f5ea22",
+      "anime_id": "6721166625030c8044873378",
+      "anime_name": "Адзуманга",
+      "date": {
+        "$date": {
+          "$numberLong": "1729800834926"
+        }
+      },
+      "rate": {
+        "$numberInt": "7"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "672cc9611ec7a93fafb3fe24"
+      },
+      "anime_id": {
+        "$oid": "672cc9611ec7a93fafb3fe2b"
+      },
+      "anime_name": "Кэйон!",
+      "date": {
+        "$date": {
+          "$numberLong": "1729804434926"
+        }
+      },
+      "rate": {
+        "$numberInt": "7"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "672cc9f91ec7a93fafb3fe3b"
+      },
+      "anime_id": {
+        "$oid": "672cc9f91ec7a93fafb3fe2c"
+      },
+      "anime_name": "Кэйон!!",
+      "date": {
+        "$date": {
+          "$numberLong": "1729804434926"
+        }
+      },
+      "rate": {
+        "$numberInt": "7"
+      }
+    },
+    {
+      "_id": "672cca151ec8a93fafb3fe2d",
+      "anime_id": "672cca171ec7a93fafb3fe2d",
+      "anime_name": "Девушки в последнем путешествии",
+      "date": {
+        "$date": {
+          "$numberLong": "1729804434926"
+        }
+      },
+      "rate": {
+        "$numberInt": "7"
+      }
+    }
+  ],
+  "account_logs": [
+    {
+      "_id": "233ca3fb4a4fgc7fa9f5ea25",
+      "date": {
+        "$date": {
+          "$numberLong": "1729797234926"
+        }
+      },
+      "type": "rename",
+      "description": "Логин изменён на Osaka1998"
+    }
+  ],
+  "reviews_count": {
+    "$numberInt": "4"
+  }
+},
+{
+  "_id": {
+    "$oid": "672cbf121ec7a93fafb3fe1d"
+  },
+  "login": "Osaka3",
+  "email": "Osaka2013@mail.com",
+  "role": "user",
+  "password": "123",
+  "registred_at": {
+    "$date": {
+      "$numberLong": "1729801416198"
+    }
+  },
+  "rates_count": {
+    "$numberInt": "0"
+  },
+  "reviews_count": {
+    "$numberInt": "0"
+  },
+  "account_logs": [
+    {
+      "_id": "233ca3fb4a4fgc7fa9f5ea25",
+      "date": {
+        "$date": {
+          "$numberLong": "1729801416198"
+        }
+      },
+      "type": "create",
+      "description": "Аккаунт создан"
+    },
+    {
+      "_id": {
+        "$oid": "671ab0466cf54cffac86b021"
+      },
+      "date": {
+        "$date": {
+          "$numberLong": "1729802310055"
+        }
+      },
+      "type": "rename",
+      "description": "Логин изменён на newOsaka"
+    }
+  ],
+  "updated_at": {
+    "$date": {
+      "$numberLong": "1729802310058"
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "672cbf271ec7a93fafb3fe1e"
+  },
+  "photo": "https://i.pinimg.com/originals/22/66/e9/2266e99326949dc3145670df47999ad3.jpg",
+  "login": "Osaka9498",
+  "email": "Osaka2043@mail.com",
+  "role": "admin",
+  "password": "admin",
+  "registred_at": {
+    "$date": {
+      "$numberLong": "1726661450000"
+    }
+  },
+  "updated_at": {
+    "$date": {
+      "$numberLong": "1726661450000"
+    }
+  },
+  "rates_count": {
+    "$numberInt": "4"
+  },
+  "rates": [
+    {
+      "_id": "233ca3fb4a4fgc7fa9f5ea22",
+      "anime_id": "672ccb5b1ec7a93fafb3fe2e",
+      "anime_name": "Счастливая звезда",
+      "date": {
+        "$date": {
+          "$numberLong": "1729800834926"
+        }
+      },
+      "rate": {
+        "$numberInt": "7"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "671ab8926cf54cffac86b022"
+      },
+      "anime_id": {
+        "$oid": "672ccc011ec7a93fafb3fe2f"
+      },
+      "anime_name": "Эксперименты Лэйн",
+      "date": {
+        "$date": {
+          "$numberLong": "1729804434926"
+        }
+      },
+      "rate": {
+        "$numberInt": "7"
+      }
+    },
+    {
+      "_id": "672ccc884ec7a93fafb3fe30",
+      "anime_id": "672ccc861ec7a93fafb3fe30",
+      "anime_name": "Девушки и танки",
+      "date": {
+        "$date": {
+          "$numberLong": "1729804434926"
+        }
+      },
+      "rate": {
+        "$numberInt": "7"
+      }
+    },
+    {
+      "_id": "674ccd481ec7a93fafb3fe31",
+      "anime_id": "672ccd461ec7a93fafb3fe31",
+      "anime_name": "Идеальная грусть",
+      "date": {
+        "$date": {
+          "$numberLong": "1729804434926"
+        }
+      },
+      "rate": {
+        "$numberInt": "7"
+      }
+    }
+  ],
+  "account_logs": [
+    {
+      "_id": "233ca3fb4a4fgc7fa9f5ea25",
+      "date": {
+        "$date": {
+          "$numberLong": "1729797234926"
+        }
+      },
+      "type": "rename",
+      "description": "Логин изменён на Osaka1998"
+    }
+  ],
+  "reviews_count": {
+    "$numberInt": "4"
+  }
+}]

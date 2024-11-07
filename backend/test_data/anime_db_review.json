@@ -1,0 +1,151 @@
+[{
+  "_id": {
+    "$oid": "671aba5d6cf54cffac86b024"
+  },
+  "user_id": "6723bf69c39d0363592db535",
+  "anime_id": "6721166625030c8044873378",
+  "anime_name": "Адзуманга",
+  "anime_cover_mini": "https://nyaa.shikimori.one/uploads/poster/animes/66/687e8377d65e4ef91bad938e235ff7a4.jpeg",
+  "date": {
+    "$date": {
+      "$numberLong": "1729804893146"
+    }
+  },
+  "rate": {
+    "$numberInt": "7"
+  },
+  "text": "good"
+},
+{
+  "_id": {
+    "$oid": "6721174201f64585eb86b01d"
+  },
+  "user_id": "6723bf69c39d0363592db535",
+  "anime_id": "672cc9611ec7a93fafb3fe2b",
+  "anime_name": "Кэйон!",
+  "anime_cover_mini": "https://nyaa.shikimori.one/uploads/poster/animes/5680/dbea6bd3879512c3847373021f6e2940.jpeg",
+  "date": {
+    "$date": {
+      "$numberLong": "1730221890745"
+    }
+  },
+  "rate": {
+    "$numberInt": "7"
+  },
+  "text": "good",
+  "reccomendation": "positive"
+},
+{
+  "_id": {
+    "$oid": "6721175501f64585eb86b01e"
+  },
+  "user_id": "6723bf69c39d0363592db535",
+  "anime_id": "672cc9f91ec7a93fafb3fe2c",
+  "anime_name": "Кэйон!!",
+  "anime_cover_mini": "https://nyaa.shikimori.one/uploads/poster/animes/7791/1a7b59ae606a6b909ee4b0fba215aa5c.jpeg",
+  "date": {
+    "$date": {
+      "$numberLong": "1730221909329"
+    }
+  },
+  "rate": {
+    "$numberInt": "7"
+  },
+  "text": "good",
+  "reccomendation": "positive"
+},
+{
+  "_id": {
+    "$oid": "6721176101f64585eb86b01f"
+  },
+  "user_id": "6723bf69c39d0363592db535",
+  "anime_id": "672cca171ec7a93fafb3fe2d",
+  "anime_name": "Девушки в последнем путешествии",
+  "anime_cover_mini": "https://nyaa.shikimori.one/uploads/poster/animes/35838/7d59119cb12c5f2858eff2b351240552.jpeg",
+  "date": {
+    "$date": {
+      "$numberLong": "1730221921378"
+    }
+  },
+  "rate": {
+    "$numberInt": "7"
+  },
+  "text": "good",
+  "reccomendation": "positive"
+},
+{
+  "_id": {
+    "$oid": "6721179201f64585eb86b020"
+  },
+  "user_id": "672cbf271ec7a93fafb3fe1e",
+  "anime_id": "672ccb5b1ec7a93fafb3fe2e",
+  "anime_name": "Счастливая звезда",
+  "anime_cover_mini": "https://nyaa.shikimori.one/uploads/poster/animes/1887/dbb2a64c9daf5ec9077ddb1becbd0102.jpeg",
+  "date": {
+    "$date": {
+      "$numberLong": "1730221970547"
+    }
+  },
+  "rate": {
+    "$numberInt": "7"
+  },
+  "text": "good",
+  "reccomendation": "positive"
+},
+{
+  "_id": {
+    "$oid": "6721179701f64585eb86b021"
+  },
+  "user_id": "672cbf271ec7a93fafb3fe1e",
+  "anime_id": "672ccc011ec7a93fafb3fe2f",
+  "anime_name": "Эксперименты Лэйн",
+  "anime_cover_mini": "https://nyaa.shikimori.one/uploads/poster/animes/339/3d503d14dd02912257fa76c15a8a9a01.jpeg",
+  "date": {
+    "$date": {
+      "$numberLong": "1730221975106"
+    }
+  },
+  "rate": {
+    "$numberInt": "7"
+  },
+  "text": "good",
+  "reccomendation": "negative"
+},
+{
+  "_id": {
+    "$oid": "6721179801f64585eb86b022"
+  },
+  "user_id": "672cbf271ec7a93fafb3fe1e",
+  "anime_id": "672ccc861ec7a93fafb3fe30",
+  "anime_name": "Девушки и танки",
+  "anime_cover_mini": "https://nyaa.shikimori.one/uploads/poster/animes/14131/72d9210049f27f20873d806874092e72.jpeg",
+  "date": {
+    "$date": {
+      "$numberLong": "1730221976690"
+    }
+  },
+  "rate": {
+    "$numberInt": "7"
+  },
+  "text": "good",
+  "reccomendation": "negative"
+},
+{
+  "_id": {
+    "$oid": "672117bd01f64585eb86b023"
+  },
+  "user_id": "672cbf271ec7a93fafb3fe1e",
+  "anime_id": "672ccd461ec7a93fafb3fe31",
+  "anime_name": "Идеальная грусть",
+  "anime_cover_mini": "https://nyaa.shikimori.one/uploads/poster/animes/437/f00fb60d473a202f4a67d4930a26837e.jpeg",
+  "date": {
+    "$date": {
+      "$numberLong": "1730222013668"
+    }
+  },
+  "rate": {
+    "$numberInt": "7"
+  },
+  "text": "good",
+  "reccomendation": "positive"
+}]
