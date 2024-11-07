@@ -1,0 +1,482 @@
+[{
+  "_id": {
+    "$oid": "6721166625030c8044873378"
+  },
+  "cover": "https://nyaa.shikimori.one/uploads/poster/animes/66/687e8377d65e4ef91bad938e235ff7a4.jpeg",
+  "name": "Адзуманга",
+  "type": "TV сериал",
+  "episodes": "26",
+  "status": "Вышло",
+  "year": "2003-09-18T00:00:00",
+  "genre": [
+    "Комедия"
+  ],
+  "age_rating": "PG-13",
+  "other_names": [
+    "Azumanga Daioh: The Animation",
+    "あずまんが大王 THE ANIMATION"
+  ],
+  "studio": "JC staff",
+  "rating": {
+    "$numberDouble": "9.051483464425498"
+  },
+  "rates_count": {
+    "$numberInt": "16010"
+  },
+  "description": "Chiyo Mihama begins her high school career as one of the strangest students in her freshman class—a tiny, 10-year-old academic prodigy with a fondness for plush dolls and homemade cooking. But her homeroom teacher, Yukari Tanizaki, is the kind of person who would hijack a student's bike to avoid being late, so strange is a relative word. There certainly isn't a shortage of peculiar girls in Yukari-sensei's homeroom class. Accompanying Chiyo are students like Tomo Takino, an energetic tomboy with more enthusiasm than brains; Koyomi Mizuhara, Tomo's best friend whose temper has a fuse shorter than Chiyo; and Sakaki, a tall, athletic beauty whose intimidating looks hide a gentle personality and a painful obsession with cats. In addition, transfer student Ayumu Kasuga, a girl with her head stuck in the clouds, fits right in with the rest of the girls—and she has a few interesting theories about Chiyo's pigtails! Together, this lovable group of girls experience the ups and downs of school life, their many adventures filled with constant laughter, surreal absurdity, and occasionally even touching commentary on the bittersweet, temporal nature of high school.",
+  "reviews": [
+    {
+      "_id": {
+        "$oid": "671aba5d6cf54cffac86b024"
+      },
+      "user_id": "6723bf69c39d0363592db535",
+      "photo_mini": "https://i.pinimg.com/originals/22/66/e9/2266e99326949dc3145670df47999ad3.jpg",
+      "date": {
+        "$date": {
+          "$numberLong": "1729805229486"
+        }
+      },
+      "rate": {
+        "$numberInt": "7"
+      },
+      "text": "good",
+      "reccomendation": "positive"
+    }
+  ],
+  "negative_rev_count": {
+    "$numberInt": "0"
+  },
+  "neutral_rev_count": {
+    "$numberInt": "0"
+  },
+  "positive_rev_count": {
+    "$numberInt": "1"
+  }
+},
+{
+  "_id": {
+    "$oid": "672cc9611ec7a93fafb3fe2b"
+  },
+  "cover": "https://nyaa.shikimori.one/uploads/poster/animes/5680/dbea6bd3879512c3847373021f6e2940.jpeg",
+  "name": "Кэйон!",
+  "type": "TV сериал",
+  "episodes": "12",
+  "status": "Вышло",
+  "year": "2009-09-18T00:00:00",
+  "genre": [
+    "Комедия"
+  ],
+  "age_rating": "PG-13",
+  "other_names": [
+    "K-ON!",
+    "Клуб лёгкой музыки"
+  ],
+  "studio": "Kyoto animation",
+  "rating": {
+    "$numberDouble": "7.86"
+  },
+  "rates_count": {
+    "$numberInt": "35000"
+  },
+  "description": "Юи Хирасава — молодая и беззаботная девушка, только-только поступившая в старшую школу. В первый же день учёбы она замечает рекламный плакат «клуба лёгкой музыки» и, загоревшись желанием вступить туда, отправляется записываться в участники.\nОна приходит в комнату клуба, где её тепло встречают находящиеся там девушки: Рицу Тайнака, Мио Акияма и Цумуги Котобуки. Когда выясняется, что Юи не умеет играть ни на одном музыкальном инструменте, её, несмотря на это, убеждают вступить хотя бы для того, чтобы предотвратить роспуск клуба. А после прослушивания небольшой композиции интерес у Юи разгорается лишь сильнее, и она решает научиться играть на гитаре.\nПролетают неделя за неделей; наряду со школьными занятиями и домашней работой Юи учится игре на гитаре, попутно сталкиваясь со множеством проблем и с различным успехом решая их — не без помощи новообретённых подруг. Ей ещё далеко до совершенства, а школьный фестиваль всё ближе и ближе... Успеет ли «клуб лёгкой музыки» подготовиться к своему дебютному выступлению?",
+  "reviews": [
+    {
+      "_id": {
+        "$oid": "6721174201f64585eb86b01d"
+      },
+      "user_id": "6723bf69c39d0363592db535",
+      "photo_mini": "https://i.pinimg.com/originals/22/66/e9/2266e99326949dc3145670df47999ad3.jpg",
+      "date": {
+        "$date": {
+          "$numberLong": "1729805229486"
+        }
+      },
+      "rate": {
+        "$numberInt": "7"
+      },
+      "text": "good",
+      "reccomendation": "positive"
+    }
+  ],
+  "negative_rev_count": {
+    "$numberInt": "0"
+  },
+  "neutral_rev_count": {
+    "$numberInt": "0"
+  },
+  "positive_rev_count": {
+    "$numberInt": "1"
+  }
+},
+{
+  "_id": {
+    "$oid": "672cc9f91ec7a93fafb3fe2c"
+  },
+  "cover": "https://nyaa.shikimori.one/uploads/poster/animes/7791/1a7b59ae606a6b909ee4b0fba215aa5c.jpeg",
+  "name": "Кэйон!!",
+  "type": "TV сериал",
+  "episodes": "26",
+  "status": "Вышло",
+  "year": "2010-09-18T00:00:00",
+  "genre": [
+    "Комедия"
+  ],
+  "age_rating": "PG-13",
+  "other_names": [
+    "K-ON!!",
+    "Клуб лёгкой музыки 2"
+  ],
+  "studio": "Kyoto animation",
+  "rating": {
+    "$numberDouble": "8.17"
+  },
+  "rates_count": {
+    "$numberInt": "25000"
+  },
+  "description": "Наступил последний год обучения для основателей клуба лёгкой музыки: Юи Хирасавы, Рицу Тайнаки, Мио Акиямы и Цумуги Котобуки.\nВместе со своей младшей участницей Адзусой Накано они проводят послешкольное время за чаем, поедая всякие сладости и порой репетируя. Помимо репетиций, выбора профориентации и поиска новых участников клуба у них множество и других школьных дел, но всё же они всегда находят время и для «After School Tea Time».",
+  "reviews": [
+    {
+      "_id": {
+        "$oid": "6721175501f64585eb86b01e"
+      },
+      "user_id": "6723bf69c39d0363592db535",
+      "photo_mini": "https://i.pinimg.com/originals/22/66/e9/2266e99326949dc3145670df47999ad3.jpg",
+      "date": {
+        "$date": {
+          "$numberLong": "1729805229486"
+        }
+      },
+      "rate": {
+        "$numberInt": "7"
+      },
+      "text": "good",
+      "reccomendation": "positive"
+    }
+  ],
+  "negative_rev_count": {
+    "$numberInt": "0"
+  },
+  "neutral_rev_count": {
+    "$numberInt": "0"
+  },
+  "positive_rev_count": {
+    "$numberInt": "1"
+  }
+},
+{
+  "_id": {
+    "$oid": "672cca171ec7a93fafb3fe2d"
+  },
+  "cover": "https://nyaa.shikimori.one/uploads/poster/animes/35838/7d59119cb12c5f2858eff2b351240552.jpeg",
+  "name": "Девушки в последнем путешествии",
+  "type": "TV сериал",
+  "episodes": "12",
+  "status": "Вышло",
+  "year": "2017-09-18T00:00:00",
+  "genre": [
+    "Приключения",
+    "Тайна",
+    "Фантастика",
+    "Повседневность"
+  ],
+  "age_rating": "PG-13",
+  "other_names": [
+    "Girls' Last Tour",
+    "Постапокалиптические сёдзё-похождения"
+  ],
+  "studio": "White Fox",
+  "rating": {
+    "$numberDouble": "8.22"
+  },
+  "rates_count": {
+    "$numberInt": "12000"
+  },
+  "description": "Мир будущего. Человеческая цивилизация достигла невероятного технологического прогресса и однажды построила себе гигантские многоуровневые города, в которых проживало огромное количество людей. Однако через какое-то время началась война, после которой человечество оказалось на грани вымирания.\nСпустя много лет в одном из таких городов мы встречаем Тито и Юри. Эти две маленькие девочки изо дня в день путешествуют на своём модифицированном Kettenkrad в поисках пропитания и ресурсов.\nДвижимые желанием забраться на самую вершину этого опустевшего города-исполина, они постоянно сталкиваются со всё новыми и новыми загадочными сооружениями, памятниками истории и культуры и даже с некоторыми другими выжившими. Что же будет ждать их в конце этой длинной дороги?",
+  "reviews": [
+    {
+      "_id": {
+        "$oid": "6721176101f64585eb86b01f"
+      },
+      "user_id": "6723bf69c39d0363592db535",
+      "photo_mini": "https://i.pinimg.com/originals/22/66/e9/2266e99326949dc3145670df47999ad3.jpg",
+      "date": {
+        "$date": {
+          "$numberLong": "1729805229486"
+        }
+      },
+      "rate": {
+        "$numberInt": "7"
+      },
+      "text": "good",
+      "reccomendation": "positive"
+    }
+  ],
+  "negative_rev_count": {
+    "$numberInt": "0"
+  },
+  "neutral_rev_count": {
+    "$numberInt": "0"
+  },
+  "positive_rev_count": {
+    "$numberInt": "1"
+  }
+},
+{
+  "_id": {
+    "$oid": "672ccb5b1ec7a93fafb3fe2e"
+  },
+  "cover": "https://nyaa.shikimori.one/uploads/poster/animes/1887/dbb2a64c9daf5ec9077ddb1becbd0102.jpeg",
+  "name": "Счастливая звезда",
+  "type": "TV сериал",
+  "episodes": "24",
+  "status": "Вышло",
+  "year": "2007-04-08T00:00:00",
+  "genre": [
+    "Комедия"
+  ],
+  "age_rating": "PG-13",
+  "other_names": [
+    "Lucky Star"
+  ],
+  "studio": "Kyoto animation",
+  "rating": {
+    "$numberDouble": "7.75"
+  },
+  "rates_count": {
+    "$numberInt": "12000"
+  },
+  "description": "История повествует о жизни четырёх японских девушек, учащихся в старшей школе города Касукабэ, что в префектуре Сайтама.\nКоната Изуми — спортивная и довольно умная девушка, она любит списывать, слегка озорная и обычно ведёт себя непринуждённо. Несмотря на способности к спорту, Коната не вступила ни в одну спортивную секцию, а сама частенько проводит ночи перед тестами за зубрёжкой. Три другие главные героини — одноклассницы Изуми: Кагами Хираги, Цукаса Хираги и Миюки Такара.\nИстория начинается с первого класса старшей школы, но по мере развития сюжета героини переходят во второй, а после и в третий класс. Сюжетная линия включает в себя множество юмора и отсылок к популярной манге, аниме и токусацу.",
+  "reviews": [
+    {
+      "_id": {
+        "$oid": "6721179201f64585eb86b020"
+      },
+      "user_id": "672cbf271ec7a93fafb3fe1e",
+      "photo_mini": "https://i.pinimg.com/originals/22/66/e9/2266e99326949dc3145670df47999ad3.jpg",
+      "date": {
+        "$date": {
+          "$numberLong": "1729805229486"
+        }
+      },
+      "rate": {
+        "$numberInt": "7"
+      },
+      "text": "good",
+      "reccomendation": "positive"
+    }
+  ],
+  "negative_rev_count": {
+    "$numberInt": "0"
+  },
+  "neutral_rev_count": {
+    "$numberInt": "0"
+  },
+  "positive_rev_count": {
+    "$numberInt": "1"
+  }
+},
+{
+  "_id": {
+    "$oid": "672ccc011ec7a93fafb3fe2f"
+  },
+  "cover": "https://nyaa.shikimori.one/uploads/poster/animes/339/3d503d14dd02912257fa76c15a8a9a01.jpeg",
+  "name": "Эксперименты Лэйн",
+  "type": "TV сериал",
+  "episodes": "13",
+  "status": "Вышло",
+  "year": "1998-07-17T00:00:00",
+  "genre": [
+    "Авангард",
+    "Драма",
+    "Фантастика",
+    "Триллер"
+  ],
+  "age_rating": "R-17",
+  "other_names": [
+    "Serial Experiments Lain"
+  ],
+  "studio": "Triangle Staff",
+  "rating": {
+    "$numberDouble": "8.09"
+  },
+  "rates_count": {
+    "$numberInt": "25000"
+  },
+  "description": "Лэйн Ивакура кажется совсем обычной девочкой, которая толком не имеет даже опыта работы на компьютере, да и с людьми не особо сходится. Но после внезапного самоубийства одной из школьниц, странных слухов об этом и попыток одноклассниц вытащить её куда-нибудь, она постепенно понимает, что всё в этом мире на самом деле совсем не такое, каким представляется... Даже она сама...",
+  "reviews": [
+    {
+      "_id": {
+        "$oid": "6721179201f64585eb86b021"
+      },
+      "user_id": "672cbf271ec7a93fafb3fe1e",
+      "photo_mini": "https://i.pinimg.com/originals/22/66/e9/2266e99326949dc3145670df47999ad3.jpg",
+      "date": {
+        "$date": {
+          "$numberLong": "1729805229486"
+        }
+      },
+      "rate": {
+        "$numberInt": "7"
+      },
+      "text": "good",
+      "reccomendation": "positive"
+    }
+  ],
+  "negative_rev_count": {
+    "$numberInt": "0"
+  },
+  "neutral_rev_count": {
+    "$numberInt": "0"
+  },
+  "positive_rev_count": {
+    "$numberInt": "1"
+  }
+},
+{
+  "_id": {
+    "$oid": "672ccc861ec7a93fafb3fe30"
+  },
+  "cover": "https://nyaa.shikimori.one/uploads/poster/animes/14131/72d9210049f27f20873d806874092e72.jpeg",
+  "name": "Девушки и танки",
+  "type": "TV сериал",
+  "episodes": "12",
+  "status": "Вышло",
+  "year": "2012-01-01T00:00:00",
+  "genre": [
+    "Экшен"
+  ],
+  "age_rating": "PG-13",
+  "other_names": [
+    "Girls und Panzer"
+  ],
+  "studio": "Actas",
+  "rating": {
+    "$numberDouble": "7.52"
+  },
+  "rates_count": {
+    "$numberInt": "10000"
+  },
+  "description": "Семья Михо Нисидзуми много поколений пилотирует танки, а вот самой ей это не особо нравится. Именно поэтому Михо пошла учиться в Академию Оарай, где не было подобных занятий. Но теперь всё изменилось, и студсовет принуждает нашу малышку вступить на танковый факультатив, чтобы Оарай могли участвовать в ежегодном турнире Сэнся-до. А ведь у неё только наконец появились подруги! Но они-то не против, даже наоборот.\nС этого момента Михо будет в команде, в которой вместе собрались и безумная водила Мако, и взрывная артиллеристка Хана, и увлечённая радио-оператор Саори, а также замечательная помощница и фанатка танков Юкари.\nВозможно, они лишь на полпути к своей удаче, и в итоге кто-то скорее сдастся, чем пойдёт до конца. Но когда цель на мушке, а орудия заряжены, эта команда без сомнений готова стрелять до победы!",
+  "reviews": [
+    {
+      "_id": {
+        "$oid": "6721179701f64585eb86b022"
+      },
+      "user_id": "672cbf271ec7a93fafb3fe1e",
+      "photo_mini": "https://i.pinimg.com/originals/22/66/e9/2266e99326949dc3145670df47999ad3.jpg",
+      "date": {
+        "$date": {
+          "$numberLong": "1729805229486"
+        }
+      },
+      "rate": {
+        "$numberInt": "7"
+      },
+      "text": "good",
+      "reccomendation": "positive"
+    }
+  ],
+  "negative_rev_count": {
+    "$numberInt": "0"
+  },
+  "neutral_rev_count": {
+    "$numberInt": "0"
+  },
+  "positive_rev_count": {
+    "$numberInt": "1"
+  }
+},
+{
+  "_id": {
+    "$oid": "672ccd461ec7a93fafb3fe31"
+  },
+  "cover": "https://nyaa.shikimori.one/uploads/poster/animes/437/f00fb60d473a202f4a67d4930a26837e.jpeg",
+  "name": "Идеальная грусть",
+  "type": "Фильм",
+  "episodes": "1",
+  "status": "Вышло",
+  "year": "1998-02-28T00:00:00",
+  "genre": [
+    "Авангард",
+    "Драма",
+    "Ужасы",
+    "Триллер"
+  ],
+  "age_rating": "R+",
+  "other_names": [
+    " Perfect Blue"
+  ],
+  "studio": "Madhouse",
+  "rating": {
+    "$numberDouble": "8.54"
+  },
+  "rates_count": {
+    "$numberInt": "26000"
+  },
+  "description": "Мима Киригоэ, участница поп-группы «CHAM!», решает бросить карьеру певицы, чтобы попробовать себя в качестве актрисы. Некоторые её фанаты недовольны этим решением — в особенности невменяемый и начавший преследовать девушку парень, который называет себя Мэмания. По мере продвижения Мимы в новой карьере близкие ей люди погибают от рук жестокого убийцы, и вскоре Мима постепенно теряет способность отличать реальность от вымысла...",
+  "reviews": [
+    {
+      "_id": {
+        "$oid": "6721179801f64585eb86b023"
+      },
+      "user_id": "672cbf271ec7a93fafb3fe1e",
+      "photo_mini": "https://i.pinimg.com/originals/22/66/e9/2266e99326949dc3145670df47999ad3.jpg",
+      "date": {
+        "$date": {
+          "$numberLong": "1729805229486"
+        }
+      },
+      "rate": {
+        "$numberInt": "7"
+      },
+      "text": "good",
+      "reccomendation": "positive"
+    }
+  ],
+  "negative_rev_count": {
+    "$numberInt": "0"
+  },
+  "neutral_rev_count": {
+    "$numberInt": "0"
+  },
+  "positive_rev_count": {
+    "$numberInt": "1"
+  }
+},
+{
+  "_id": {
+    "$oid": "672ccf6a1ec7a93fafb3fe32"
+  },
+  "cover": "https://nyaa.shikimori.one/uploads/poster/animes/30276/0b08b0f6f69d32a3062d227ad77e2d83.jpeg",
+  "name": "Ванпанчмен ",
+  "type": "TV сериал",
+  "episodes": "12",
+  "status": "Вышло",
+  "year": "2015-10-05T00:00:00",
+  "genre": [
+    "Экшен",
+    "Комедия"
+  ],
+  "age_rating": "R-17",
+  "other_names": [
+    "One Punch Man"
+  ],
+  "studio": "Madhouse",
+  "rating": {
+    "$numberDouble": "8.49"
+  },
+  "rates_count": {
+    "$numberInt": "112000"
+  },
+  "description": "Вы устали от запоминания суператак и бесконечных доспехов, но душа просит адреналина и драк? Тогда эта новая экшен-комедия от студии Madhouse для вас!\nГлавный герой не размахивает мечом, не выкрикивает боевой клич и вообще не отличается ничем, особенно героическим. Всё в этом молодом человеке по имени Сайтама так и вопит: «заурядный» — и его лысая голова, и его хилое телосложение. Однако у этого среднестатистического по всем параметрам парня совсем не среднестатистические проблемы... Потому что на самом деле он — супергерой, жаждущий битвы с суперкрутыми противниками. Загвоздка в том, что, отыскав наконец перспективного кандидата на роль главного врага, Сайтама выносит его с одного удара. Сможет ли Сайтама заиметь себе могучего злодея, который смог бы достойно противостоять ему? Следите за Ванпанчменом в его уморительных приключениях, пока среди многочисленных плохих парней он, несмотря ни на что, будет пытаться найти «своего»!",
+  "reviews": [],
+  "negative_rev_count": {
+    "$numberInt": "0"
+  },
+  "neutral_rev_count": {
+    "$numberInt": "0"
+  },
+  "positive_rev_count": {
+    "$numberInt": "0"
+  }
+}]
