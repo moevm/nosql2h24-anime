@@ -6,10 +6,12 @@ namespace AnimeCatalogApi.Models;
 public class AnimeReview
 {
     [BsonId]
-    public ObjectId Id { get; set; }
+    [BsonRepresentation(BsonType.ObjectId)]
+    public string? Id { get; set; }
 
     [BsonElement("user_id")]
-    public ObjectId UserId { get; set; }
+    [BsonRepresentation(BsonType.ObjectId)]
+    public string? UserId { get; set; }
 
     [BsonElement("photo_mini")]
     public string? PhotoUrl { get; set; }

@@ -47,7 +47,7 @@ public class Anime
     public int RatesCount { get; set; }
 
     [BsonElement("description")]
-    public int Description { get; set; }
+    public string? Description { get; set; }
 
     [BsonElement("negative_rev_count")]
     public int NegativeRevCount { get; set; }

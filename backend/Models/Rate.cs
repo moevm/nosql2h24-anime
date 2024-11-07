@@ -10,7 +10,8 @@ public class Rate
     public string? Id { get; set; }
 
     [BsonElement("anime_id")]
-    public ObjectId AnimeId { get; set; }
+    [BsonRepresentation(BsonType.ObjectId)]
+    public string? AnimeId { get; set; }
 
     [BsonElement("anime_name")]
     public string? AnimeName { get; set; }

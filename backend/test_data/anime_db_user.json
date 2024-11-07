@@ -58,16 +58,6 @@
   },
   "account_logs": [
     {
-      "_id": "233ca3fb4a4fgc7fa9f5ea25",
-      "date": {
-        "$date": {
-          "$numberLong": "1729801416198"
-        }
-      },
-      "type": "create",
-      "description": "Аккаунт создан"
-    },
-    {
       "_id": {
         "$oid": "671ab0466cf54cffac86b021"
       },
@@ -102,7 +92,7 @@
   },
   "rates": [
     {
-      "_id": "233ca3fb4a4fgc7fa9f5ea22",
+      "_id": "672d26a11ec7a93fafb3fee2",
       "anime_id": "6721166625030c8044873378",
       "anime_name": "Адзуманга",
       "date": {
@@ -163,16 +153,7 @@
     }
   ],
   "account_logs": [
-    {
-      "_id": "233ca3fb4a4fgc7fa9f5ea25",
-      "date": {
-        "$date": {
-          "$numberLong": "1729797234926"
-        }
-      },
-      "type": "rename",
-      "description": "Логин изменён на Osaka1998"
-    }
+
   ],
   "reviews_count": {
     "$numberInt": "4"
@@ -198,16 +179,6 @@
     "$numberInt": "0"
   },
   "account_logs": [
-    {
-      "_id": "233ca3fb4a4fgc7fa9f5ea25",
-      "date": {
-        "$date": {
-          "$numberLong": "1729801416198"
-        }
-      },
-      "type": "create",
-      "description": "Аккаунт создан"
-    },
     {
       "_id": {
         "$oid": "671ab0466cf54cffac86b021"
@@ -251,7 +222,7 @@
   },
   "rates": [
     {
-      "_id": "233ca3fb4a4fgc7fa9f5ea22",
+      "_id": "672d25851ec7a93fafb3fee1",
       "anime_id": "672ccb5b1ec7a93fafb3fe2e",
       "anime_name": "Счастливая звезда",
       "date": {
@@ -308,16 +279,6 @@
     }
   ],
   "account_logs": [
-    {
-      "_id": "233ca3fb4a4fgc7fa9f5ea25",
-      "date": {
-        "$date": {
-          "$numberLong": "1729797234926"
-        }
-      },
-      "type": "rename",
-      "description": "Логин изменён на Osaka1998"
-    }
   ],
   "reviews_count": {
     "$numberInt": "4"
