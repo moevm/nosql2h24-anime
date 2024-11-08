@@ -1,7 +1,7 @@
 using AnimeCatalogApi.Models;
 using AnimeCatalogApi.Services;
 using Microsoft.AspNetCore.Mvc;
-
+using MongoDB.Bson;
 namespace AnimeCatalogApi.Controllers;
 
 [ApiController]
@@ -14,8 +14,8 @@ public class UserController : ControllerBase
         _userService = userService;
 
     [HttpGet]
-    public async Task<List<User>> Get() =>
-        await _userService.GetAsync();
+    public async Task<List<User>> Get(string sort = "registred_date", string order = "-1", string role = "") =>
+        await _userService.GetAsync(sort, order, role);
 
     [HttpGet("{id:length(24)}")]
     public async Task<ActionResult<User>> Get(string id)
@@ -27,6 +27,27 @@ public class UserController : ControllerBase
             return NotFound();
         }
 
+        return u;
+    }
+
+    //temporary, todo 
+    [HttpGet("Auth/{name}")]
+    public async Task<ActionResult<User>> Auth(string name)
+    {
+        var u = await _userService.Auth(name);
+
+        if (u is null)
+        {
+            return NotFound();
+        }
+
+        return u;
+    }
+
+    [HttpGet("History/{id:length(24)}")]
+    public async Task<ActionResult<List<AccountLog>>> GetHistory(string id)
+    {
+        var u = await _userService.GetHistoryAsync(id);
         return u;
     }
 

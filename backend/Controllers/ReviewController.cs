@@ -30,6 +30,19 @@ public class ReviewController : ControllerBase
         return rev;
     }
 
+    [HttpGet("User/{id:length(24)}")]
+    public async Task<ActionResult<List<Review>>> GetUserReviews(string id)
+    {
+        var rev = await _reviewService.GetAsyncByUserId(id);
+
+        if (rev is null)
+        {
+            return NotFound();
+        }
+
+        return rev;
+    }
+
     [HttpPost]
     public async Task<IActionResult> Post(Review newRev)
     {

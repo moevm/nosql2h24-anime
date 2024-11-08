@@ -26,7 +26,7 @@ public class Anime
     public string? Status { get; set; }
 
     [BsonElement("year")]
-    public DateTime Year { get; set; }
+    public string Year { get; set; }
 
     [BsonElement("genre")]
     public List<string> Genres { get; set; } = new List<string>();

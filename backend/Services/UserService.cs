@@ -24,18 +24,26 @@ public class UserService
 
         if(_userCollection.CountDocuments("{}") == 0){
         string text = System.IO.File.ReadAllText("./test_data/anime_db_user.json");
-        _userCollection.DeleteMany("{}");
         var document = BsonSerializer.Deserialize<List<User>>(text);
         _userCollection.InsertMany(document);
         }
     }
 
-    public async Task<List<User>> GetAsync() =>
-        await _userCollection.Find(_ => true).ToListAsync();
+    public async Task<List<User>> GetAsync(string sort, string order, string role) =>
+        await _userCollection.Find($"{{role: {{$regex: \"{role}\"}} }}").Sort($"{{ {sort}: {order} }}").ToListAsync();
 
     public async Task<User?> GetAsync(string id) =>
         await _userCollection.Find(x => x.Id == id).FirstOrDefaultAsync();
+    
+    //temporary, todo
+    public async Task<User?> Auth(string name) =>
+        await _userCollection.Find(x => x.Login == name).FirstOrDefaultAsync();
 
+    public async Task<List<AccountLog>> GetHistoryAsync(string id) {
+        var results = await _userCollection.Find(x => x.Id == id).FirstOrDefaultAsync();
+        return results.AccountLogs;
+    }
+    
     public async Task CreateAsync(User newUser) =>
         await _userCollection.InsertOneAsync(newUser);
 
