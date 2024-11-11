@@ -1,0 +1,147 @@
+* {
+    margin: 0;
+    box-sizing: border-box; /* Помогает избежать проблем с отступами */
+}
+
+.head {
+
+    background-image:url("../img/head.jpg");
+    color: white;
+    font-size: xxx-large;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    background-size: cover; /* Для фоновой картинки */
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+   /*
+    position: fixed;
+    ;*/
+}
+
+.search {
+    width: 100%;
+    height: 30px;
+    margin: 10px;
+    border-radius: 20px; /* Скругление углов на 10 пикселей */
+}
+.container {
+    display: grid;
+    grid-template-columns: 7fr 3fr; /* 3 доли для первой колонки и 7 долей для второй колонки */
+    grid-template-rows: auto; /* Высота строк подгоняется под содержимое */
+    gap: 10px; /* Промежутки между элементами */
+}
+.post {
+
+    height: 100px;
+    width: 100%;
+    border: 2px solid teal;
+    padding: 10px;
+    justify-content: space-between;
+    margin: 10px;
+    border-radius: 10px; /* Скругление углов на 10 пикселей */
+
+
+
+   /* display: list-item;
+    */
+}
+
+.post_content {
+    align-items: center;
+
+}
+
+.filters {
+    border: 2px solid #510080;
+    height: 100%;
+    width: 90%;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px; /* Скругление углов на 10 пикселей */
+
+}
+
+.footer{
+    border: 2px solid #6ebbf4;
+    height: 50px;
+    width: 100%;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+.lineSearch{
+    display: grid;
+    grid-template-columns: 2fr 6fr 2fr;
+    grid-template-rows: auto; /* Высота строк подгоняется под содержимое */
+    gap: 10px; /* Промежутки между элементами */
+}
+
+.searchUsers {
+    height: 30px;
+    width: 100%;
+    border: 2px solid #d82866;
+    padding: 10px;
+    justify-content: space-between;
+    margin: 10px;
+    border-radius: 10px;
+
+}
+
+.NavBar {
+    height: 30px;
+    width: 90%;
+    border: 2px solid #d82866;
+    padding: 10px;
+    justify-content: space-between;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+.containerLogin {
+    display: grid;
+    place-items: center;
+    grid-template-columns: 1fr;
+    border: 2px solid teal;
+    border-radius: 10px;
+    margin: 100px;
+}
+
+.admin {
+    width: 300px; /* Ширина блока */
+    height: 200px; /* Высота блока */
+    background-color: lightgray; /* Цвет фона для наглядности */
+    text-align: center; /* Центрируем текст внутри блока */
+    padding: 20px; /* Отступы внутри блока */
+}
+
+.regButton{
+    height: 50px;
+    width: 50px;
+    margin: 10px;
+}
+
+.reg{
+    height: 50px;
+    width: 200px;
+    margin: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
