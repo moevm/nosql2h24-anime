@@ -5,9 +5,9 @@ const Poster = (props) => {
     return (
         <div className="post">
             <div className="post_content">
-                <strong>{props.post.id}. {props.post.title}</strong>
+                <strong>{props.post.name}</strong>
                 <div>
-                    {props.post.body}
+                    {props.post.type}
                 </div>
 
             </div>
