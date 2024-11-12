@@ -14,7 +14,7 @@ const Main = () => {
     <Header/>
     <div className="lineSearch">
         <button className="searchUsers"> Поиск пользователей</button>
-        <Search/>
+        <input type='text' onChange={e=> searchByName(e.target.value)} placeholder={"Поиск"} className="search"/>
         <div className="NavBar">
             <Navbar/>
         </div>
@@ -24,7 +24,13 @@ const Main = () => {
         <Filters/>
         <Footer/>
     </div>
-</div>
+    </div>
+
+    async function searchByName(name) {
+        const response = await fetch('http://localhost:5000/api/Anime?name=' + name, {method: 'GET'});
+        const data = await response.json();
+        setAnime(data);
+    }
     return (
         <div>
     {content}
