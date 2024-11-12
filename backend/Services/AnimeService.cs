@@ -31,17 +31,25 @@ public class AnimeService
     string ageRating, string sort, string order, string fromYear, string toYear){
         if(toYear == "")
             toYear = string.Format("{0}", DateTime.Now.Year + 2);
-        if (genres == ""){
-            return await _animeCollection.Find($"{{name: {{$regex: \"{name}\"}}, type: {{$regex: \"^{type}\"}}, status: {{$regex: \"^{status}\"}}, age_rating: {{$regex: \"{ageRating}$\"}}, year: {{$gte: \"{fromYear}\" , $lte: \"{toYear}\" }} }}")
-            .Sort($"{{ {sort}: {order} }}")
-            .ToListAsync();
-        }
-        else{
+        var query = $"{{name: {{$regex: \"{name}\"}}";
+        if (genres != ""){ 
             var genres_f = "\"" + string.Join("\",\"", genres.Split(',')) + "\"";
-            return await _animeCollection.Find($"{{genre: {{$all: [{genres_f}]}}, name: {{$regex: \"{name}\"}}, type: {{$regex: \"^{type}\"}}, status: {{$regex: \"^{status}\"}}, age_rating: {{$regex: \"{ageRating}$\"}}, year: {{$gte: \"{fromYear}\" , $lte: \"{toYear}\" }}  }}")
-            .Sort($"{{ {sort}: {order} }}")
-            .ToListAsync();
+            query += $", genre: {{$all: [{genres_f}]}}";
         }
+        if (type != ""){
+            var types = "\"" + string.Join("\",\"", type.Split(',')) + "\"";
+            query += $", type: {{$in: [{types}] }}";
+        }
+        if (status != ""){
+            var statuses = "\"" + string.Join("\",\"", status.Split(',')) + "\"";
+            query += $", status: {{$in: [{statuses}] }}";
+        } 
+        if (ageRating != ""){
+            var ageRatings = "\"" + string.Join("\",\"", ageRating.Split(',')) + "\"";
+            query += $", age_rating: {{$in: [{ageRatings}] }}";
+        }  
+        query += $", year: {{$gte: \"{fromYear}\" , $lte: \"{toYear}\" }} }}";
+        return await _animeCollection.Find($"{query}").Sort($"{{ {sort}: {order} }}").ToListAsync();
     }
 
     public async Task<Anime?> GetAsyncById(string id) =>
