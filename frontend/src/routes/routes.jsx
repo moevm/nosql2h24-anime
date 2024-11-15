@@ -4,7 +4,7 @@ import Main from '../pages/Main';
 import Login from '../pages/Login';
 import Admin from '../pages/Admin';
 import Logout from '../pages/LogOut';
-
+import UsersList from '../pages/UsersList'
 export const useRoutes = () => {
 
     return (
@@ -12,7 +12,7 @@ export const useRoutes = () => {
             <Route index element={<Main />} />
             <Route path="/" element={<Main />} />
             <Route path="/login" element={<Login />} />
-
+            <Route path="/UsersList" element={<UsersList />} />
             <Route element={<PrivateRoute />}>
                 <Route path='/admin' element={<Admin />} />
                 <Route path="/Logout" element={<Logout />} />
