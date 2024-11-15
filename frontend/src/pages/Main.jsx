@@ -5,6 +5,7 @@ import Navbar from "../components/NavBar";
 import PosterList from "../components/PosterList";
 import Filters from "../components/Filters";
 import Footer from "../components/Footer";
+import { Link } from 'react-router-dom'
 
 let base_url = 'http://localhost:5000/api/Anime?'
 let name = ""
@@ -56,7 +57,7 @@ const Main = () => {
     :<div className="Main">
     <Header/>
     <div className="lineSearch">
-        <button className="searchUsers"> Поиск пользователей</button>
+        <Link to="/UsersList">Поиск пользователей</Link>
         <input type='text' onChange={e=> searchByName(e.target.value)} placeholder={"Поиск"} className="search"/>
         <div className="NavBar">
             <Navbar/>
