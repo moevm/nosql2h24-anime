@@ -8,6 +8,7 @@ const Poster = (props) => {
                 <strong>{props.post.name}</strong>
                 <div>
                     {props.post.type}
+                    <div><img src={props.post.coverUrl} alt="Картинка" style={{ width: '30px', height: 'auto' }} /></div>
                 </div>
 
             </div>
