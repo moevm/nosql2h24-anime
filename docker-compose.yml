@@ -21,7 +21,7 @@ services:
     image: ${DOCKER_REGISTRY-}frontend
     restart: on-failure
     ports:
-     - "8000:80"
+     - "127.0.0.1:8000:80"
     build:
      context: .
      dockerfile: frontend/Dockerfile
