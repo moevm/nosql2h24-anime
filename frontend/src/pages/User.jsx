@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom'
+
 let base_url = 'http://localhost:5000/api/User/'
 
 let r_date = "";
@@ -52,6 +54,7 @@ const User = () => {
                         </li>
                 ))}
             </div>
+            <div><Link to={`/UserReviews/${id}`}>Отзывы</Link></div>
     
 </ul>
 </div>

@@ -6,6 +6,7 @@ import Admin from '../pages/Admin';
 import Anime from '../pages/Anime'
 import Logout from '../pages/LogOut';
 import UsersList from '../pages/UsersList'
+import UserReviews from '../pages/UserReviews'
 import User from '../pages/User'
 export const useRoutes = () => {
 
@@ -16,6 +17,7 @@ export const useRoutes = () => {
             <Route path="/login" element={<Login />} />
             <Route path="/UsersList" element={<UsersList />} />
             <Route path="/Anime/:id" element={<Anime />} />
+            <Route path="/UserReviews/:id" element={<UserReviews />} />
             <Route path="/User/:id" element={<User />} />
             <Route element={<PrivateRoute />}>
                 <Route path='/admin' element={<Admin />} />
