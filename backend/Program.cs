@@ -20,11 +20,9 @@ builder.Services.AddSingleton<AnimeService>();
 builder.Services.AddSingleton<UserService>();
 builder.Services.AddSingleton<ReviewService>();
 
-//var client = new MongoClient("mongodb://username:password@database:27017");
-//builder.Services.AddSingleton(client);
 
 var app = builder.Build();
-app.UseCors(builder => builder.WithOrigins("http://localhost:8000").AllowAnyHeader().AllowAnyMethod());
+app.UseCors(builder => builder.WithOrigins("http://localhost:8000", "http://127.0.0.1:8000").AllowAnyHeader().AllowAnyMethod());
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
