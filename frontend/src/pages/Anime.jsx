@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom'
+
 let base_url = 'http://localhost:5000/api/Anime/'
 
 let year = "";
@@ -47,7 +49,7 @@ const Anime = () => {
            <div>
                 {reviews.map(review => (
                     <li key={review.id}>
-                        <div>{review.userName}</div>
+                        <div><Link to={`/User/${review.userId}`}>{review.userName}</Link></div>
                         <div><img src={review.photoUrl} alt="Картинка" style={{ width: '30px', height: 'auto' }} /></div>
                         <div>Дата: {review.date.split('T')[0]}</div>
                         <div>Оценка: {review.rate}</div>
