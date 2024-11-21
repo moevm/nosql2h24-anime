@@ -13,6 +13,9 @@ public class AnimeReview
     [BsonRepresentation(BsonType.ObjectId)]
     public string? UserId { get; set; }
 
+    [BsonElement("user_name")]
+    public string? UserName { get; set; }
+
     [BsonElement("photo_mini")]
     public string? PhotoUrl { get; set; }
 
