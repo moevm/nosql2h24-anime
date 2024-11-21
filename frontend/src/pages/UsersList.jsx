@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom'
 
 let base_url = 'http://localhost:5000/api/User?'
 let name = ""
@@ -79,7 +80,7 @@ const UsersList = () => {
             <ul>
                 {users.map(user => (
                     <li key={user.id}>
-                       <div> {user.login}</div>
+                       <div> <Link to={`/User/${user.id}`}>{user.login}</Link></div>
                        <div> Зарегистрирован {user.registrationDate}</div>
                        <div> Оценок {user.ratesCount}</div>
                        <div> Обзоров {user.reviewsCount}</div>
