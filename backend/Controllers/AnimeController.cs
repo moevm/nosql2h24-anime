@@ -16,8 +16,8 @@ public class AnimeController : ControllerBase
     [HttpGet("")]
     public async Task<List<Anime>> Get(string name = "", string genres = "",
     string type = "", string status = "", string ageRating = "",
-     string sort = "rating", string order = "-1", string fromYear = "", string toYear = "") =>
-        await _animeService.GetAsync(name, genres, type, status, ageRating, sort, order, fromYear, toYear);
+     string sort = "rating", string order = "-1", string fromYear = "", string toYear = "", string page = "") =>
+        await _animeService.GetAsync(name, genres, type, status, ageRating, sort, order, fromYear, toYear, page);
 
     [HttpGet("{id:length(24)}")]
     public async Task<ActionResult<Anime>> Get(string id)
