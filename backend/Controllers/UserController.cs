@@ -31,10 +31,11 @@ public class UserController : ControllerBase
     }
 
     //temporary, todo 
-    [HttpGet("Auth/{name}")]
-    public async Task<ActionResult<User>> Auth(string name)
+    [HttpPost("Auth")]
+    public async Task<ActionResult<User>> Auth([FromBody] AuthReqUser user)
     {
-        var u = await _userService.Auth(name);
+
+        var u = await _userService.Auth(user);
 
         if (u is null)
         {
