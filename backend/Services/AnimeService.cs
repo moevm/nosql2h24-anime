@@ -28,7 +28,7 @@ public class AnimeService
     }
 
     public async Task<List<Anime>> GetAsync(string name, string genres, string type, string status, 
-    string ageRating, string sort, string order, string fromYear, string toYear){
+    string ageRating, string sort, string order, string fromYear, string toYear, string page = "1"){
         if(toYear == "")
             toYear = string.Format("{0}", DateTime.Now.Year + 2);
         var query = $"{{name: {{$regex: \"{name}\"}}";
@@ -49,7 +49,19 @@ public class AnimeService
             query += $", age_rating: {{$in: [{ageRatings}] }}";
         }  
         query += $", year: {{$gte: \"{fromYear}\" , $lte: \"{toYear}\" }} }}";
-        return await _animeCollection.Find($"{query}").Sort($"{{ {sort}: {order} }}").ToListAsync();
+
+        int pages = -1;
+        if (!string.IsNullOrEmpty(page) && int.TryParse(page, out var parsedPage))
+    {
+        pages = parsedPage - 1;
+        
+    }
+        Console.WriteLine(pages);
+        if (pages >= 0)
+            return await _animeCollection.Find($"{query}").Sort($"{{ {sort}: {order} }}").Skip(3*pages).Limit(3).ToListAsync();
+        else{
+            return await _animeCollection.Find($"{query}").Sort($"{{ {sort}: {order} }}").ToListAsync();
+        }
     }
 
     public async Task<Anime?> GetAsyncById(string id) =>
