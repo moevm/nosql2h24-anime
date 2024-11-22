@@ -7,7 +7,9 @@ import Filters from "../components/Filters";
 import Footer from "../components/Footer";
 import { Link } from 'react-router-dom'
 
-let base_url = 'http://localhost:5000/api/Anime?'
+
+let base_url = 'http://localhost:5000/api/Anime/'
+let page = ""
 let name = ""
 let TV = ""
 let OVA = ""
@@ -51,7 +53,25 @@ let genres = new Map([
     ["R+", ""]
   ]);
 const Main = () => {
+    const [currentPage, setCurrentPage] = useState(1);
+    const [totalPages, setTotalPages] = useState(1);
+
     const [anime, setAnime] = useState();
+
+    const handlePageChange = (page) => {
+        if (page > 0 && page <= totalPages) { // Проверяем, что страница в допустимом диапазоне
+            setCurrentPage(page);
+            console.log("Переход на страницу: " + page);
+            console.log("Текущая страница: " + currentPage);
+        }
+    };
+
+    useEffect(() => {
+        // Этот эффект будет вызван каждый раз, когда currentPage изменится
+        console.log(`Текущая страница изменена на: ${currentPage}`);
+        getData();
+    }, [currentPage]);
+
     useEffect(() => {getData();}, []);
     const content = anime === undefined ? <p>wait</p> 
     :<div className="Main">
@@ -163,7 +183,17 @@ const Main = () => {
 
         <input type="date" onChange={e => DateFromFilter(e.target.value)}/> С
         <input type="date" onChange={e => DateToFilter(e.target.value)}/> По
-        <Footer/>
+        
+        <div>
+            <h1>Текущая страница: {currentPage}</h1>
+            <Footer 
+                currentPage={currentPage} 
+                totalPages={totalPages} 
+                onPageChange={handlePageChange} 
+            />
+        </div>
+    
+
     </div>
     </div>
     return (
@@ -207,8 +237,9 @@ const Main = () => {
         getData()
     }
     async function TVFilter(check, newtype) {
-        if (check)
+        if (check){
             TV = newtype + ','
+        }
         else
             TV = ''
         getData()
@@ -236,20 +267,40 @@ const Main = () => {
     }
 //need rework - click enter -> list changed
     async function searchByName(newname) {
-        name = 'name=' + newname + '&'
+        name = '&name=' + newname
         getData()
     }
+
         async function getData(){
-            let url = base_url + name + "&type=" + TV + OVA + Film + Special
+            
+
+            let url = base_url + "?type=" + TV + OVA + Film + Special
+            + name
             + "&genres=" + Array.from(genres.values()).join('').slice(0,-1)
             + "&status=" + Array.from(statuses.values()).join('').slice(0,-1)
             + "&ageRating=" + Array.from(ageRatings.values()).join('').slice(0,-1)
             + "&sort=" + sort.get("name") + "&order=" + sort.get("order")
             + "&fromYear=" + dates.get("from") + "&toYear=" + dates.get("to")
-            const response = await fetch(url, {method: 'GET'});
-            const data = await response.json();
+            
+            let url_page = url + "&page=" + currentPage;
+            console.log("url = " + url);
+            console.log("url_page = " + url_page);
+
+            console.log("currentPage = " + currentPage);
+            console.log("totalPages = " + totalPages);
+            //console.log("handlePageChange = " + handlePageChange);
+
+            const response = await fetch(url, {method: 'GET'});//url
+            const allData = await response.json();
+            setTotalPages(Math.ceil(allData.length / 3));
+            const response_page = await fetch(url_page, {method: 'GET'});
+            const data = await response_page.json();
             setAnime(data);
         }
+
+        
+    
+        
 }
 
 export default Main
