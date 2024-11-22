@@ -36,8 +36,8 @@ public class UserService
         await _userCollection.Find(x => x.Id == id).FirstOrDefaultAsync();
     
     //temporary, todo
-    public async Task<User?> Auth(string name) =>
-        await _userCollection.Find(x => x.Login == name).FirstOrDefaultAsync();
+    public async Task<User?> Auth(AuthReqUser u) =>
+        await _userCollection.Find(x => x.Login == u.Login && x.Password == u.Password).FirstOrDefaultAsync();
 
     public async Task<List<AccountLog>> GetHistoryAsync(string id) {
         var results = await _userCollection.Find(x => x.Id == id).FirstOrDefaultAsync();

@@ -51,3 +51,9 @@ public class User
     public List<AccountLog> AccountLogs {get; set; } = null!;
 
 }
+
+public class AuthReqUser
+{
+    public string? Login { get; set; }
+    public string? Password { get; set; }
+}
