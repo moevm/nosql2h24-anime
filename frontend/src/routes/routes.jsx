@@ -18,10 +18,11 @@ export const useRoutes = () => {
             <Route path="/UsersList" element={<UsersList />} />
             <Route path="/Anime/:id" element={<Anime />} />
             <Route path="/UserReviews/:id" element={<UserReviews />} />
+            <Route path="/Logout" element={<Logout />} />
             <Route path="/User/:id" element={<User />} />
             <Route element={<PrivateRoute />}>
                 <Route path='/admin' element={<Admin />} />
-                <Route path="/Logout" element={<Logout />} />
+                
             </Route>
 
         </Routes>

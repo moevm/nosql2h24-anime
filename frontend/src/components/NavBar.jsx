@@ -6,9 +6,7 @@ function Navbar() {
     return (
         <>
             <nav>
-
-                <Link to="/admin">Admin</Link>
-                {isAuthenticated ? <Link to="/logout">Logout</Link> : <Link to="/login">Login</Link>}
+                <p>{sessionStorage.getItem('login')}</p>{sessionStorage.getItem('login') ? <Link to="/logout">Logout</Link> : <Link to="/login">Login</Link>}
             </nav>
         </>
     )
