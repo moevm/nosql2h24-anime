@@ -52,28 +52,30 @@ const UsersList = () => {
                 placeholder="Поиск пользователей..."
                 onChange={e => searchByName(e.target.value)}
             />
+            <div>
             <label>
             <input type="radio" value="" name="radio" onChange={e => Sort("reviews_count", "-1")}/> Больше всего отзывов
             </label>
-            <br />
             <label>
             <input type="radio" value=""  name="radio"onChange={e => Sort("reviews_count", "1")}/>  Меньше всего отзывов
             </label>
-            <br />
+            </div>
+        <div>
             <label>
             <input type="radio" value=""  name="radio" onChange={e => Sort("registred_at", "-1")}/>  Самые новые
         </label>
         <label>
             <input type="radio" value="" name="radio" onChange={e => Sort("registred_at", "1")}/>  Самые давние
             </label>
-            <br />
+        </div>
+        <div>
             <label>
             <input type="radio" value=""  name="radio"onChange={e => Sort("rates_count", "-1")}/>  Больше всего оценок
             </label>
-            <br />
             <label>
             <input type="radio" value=""  name="radio" onChange={e => Sort("rates_count", "1")}/>  Меньше всего оценок
         </label>
+        </div>
         <label>
         <input type = "checkbox" onChange={e => AdminFilter(e.target.checked, "admin" )}/> Только администрация
         </label>

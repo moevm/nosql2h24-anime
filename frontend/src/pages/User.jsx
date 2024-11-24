@@ -44,11 +44,10 @@ const User = () => {
            <div> Профиль обновлён: {u_date}</div>
            <div> Оценено: {user.ratesCount}</div>
            <div> Обзоров: {user.reviewsCount}</div>
-           <div> Количество оценок: {user.ratesCount}</div>
            <div>Оценки:
                 {rates.map(rate => (
                     <li key={rate.id}>
-                        <div>{rate.animeName}</div>
+                        <div><Link to={`/Anime/${rate.animeId}`}>{rate.animeName}</Link></div>
                         <div>Дата: {rate.date.split('T')[0]}</div>
                         <div>Оценка: {rate.rateNum}</div>
                         </li>

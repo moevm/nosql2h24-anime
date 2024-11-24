@@ -83,8 +83,7 @@ const Main = () => {
             <Navbar/>
         </div>
     </div>
-    <div className="container">
-        <PosterList posts = {anime}/>
+    <div> Тип:
         <label>
         <input type = "checkbox" onChange={e => TVFilter(e.target.checked, "TV сериал")}/> TV
         </label>
@@ -97,7 +96,8 @@ const Main = () => {
         <label>
         <input type = "checkbox" onChange={e => SpecialFilter(e.target.checked, "Special")}/> Special
         </label>
-
+    </div>
+    <div> Жанр:
         <label>
         <input type = "checkbox" onChange={e => GenreFilter(e.target.checked, "Авангард")}/> Авангард
         </label>
@@ -137,7 +137,8 @@ const Main = () => {
         <label>
         <input type = "checkbox" onChange={e => GenreFilter(e.target.checked, "Фэнтэзи")}/> Фэнтэзи
         </label>
-
+    </div>
+    <div> Статус:
         <label>
         <input type = "checkbox" onChange={e => StatusFilter(e.target.checked, "Вышло")}/> Вышло
         </label>
@@ -147,7 +148,8 @@ const Main = () => {
         <label>
         <input type = "checkbox" onChange={e => StatusFilter(e.target.checked, "Ещё не вышло")}/> Ещё не вышло
         </label>
-
+    </div>
+    <div> Возрастной рейтинг:
         <label>
         <input type = "checkbox" onChange={e => AgeRatingFilter(e.target.checked, "G")}/> G
         </label>
@@ -163,7 +165,12 @@ const Main = () => {
         <label>
         <input type = "checkbox" onChange={e => AgeRatingFilter(e.target.checked, "R%2B")}/> R+
         </label>
-
+    </div>
+    <div> Дата выхода:
+        <input type="date" onChange={e => DateFromFilter(e.target.value)}/> С
+        <input type="date" onChange={e => DateToFilter(e.target.value)}/> По
+        </div>
+    <div> 
         <label>
             <input type="radio" value="" name="radio" onChange={e => Sort("rating", "-1")}/>  По рейтингу
         </label>
@@ -179,11 +186,11 @@ const Main = () => {
             <label>
             <input type="radio" value=""  name="radio" onChange={e => Sort("name", "1")}/>  По названию
         </label>
+    </div>
         <br />
-
-        <input type="date" onChange={e => DateFromFilter(e.target.value)}/> С
-        <input type="date" onChange={e => DateToFilter(e.target.value)}/> По
-        
+        <div className="container">
+        <PosterList posts = {anime}/>
+        </div>
         <div>
             <h1>Текущая страница: {currentPage}</h1>
             <Footer 
@@ -192,9 +199,6 @@ const Main = () => {
                 onPageChange={handlePageChange} 
             />
         </div>
-    
-
-    </div>
     </div>
     return (
         <div>
