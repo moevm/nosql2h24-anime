@@ -83,7 +83,7 @@ const UsersList = () => {
                 {users.map(user => (
                     <li key={user.id}>
                        <div> <Link to={`/User/${user.id}`}>{user.login}</Link></div>
-                       <div> Зарегистрирован {user.registrationDate}</div>
+                       <div> Зарегистрирован {user.registrationDate.split('T')[0]}</div>
                        <div> Оценок {user.ratesCount}</div>
                        <div> Обзоров {user.reviewsCount}</div>
                     </li>

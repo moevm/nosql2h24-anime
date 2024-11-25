@@ -167,8 +167,8 @@ const Main = () => {
         </label>
     </div>
     <div> Дата выхода:
-        <input type="date" onChange={e => DateFromFilter(e.target.value)}/> С
-        <input type="date" onChange={e => DateToFilter(e.target.value)}/> По
+       С <input type="date" onChange={e => DateFromFilter(e.target.value)}/> 
+        По <input type="date" onChange={e => DateToFilter(e.target.value)}/> 
         </div>
     <div> 
         <label>

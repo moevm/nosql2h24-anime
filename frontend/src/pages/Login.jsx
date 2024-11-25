@@ -31,6 +31,9 @@ const Login = () => {
             sessionStorage.setItem("id", data.id)
             navigate(from, { replace: true })
         }
+        else{
+            alert("Пароль или логин неверны")
+        }
     };
     return (
         <>
