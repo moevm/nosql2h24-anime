@@ -26,6 +26,7 @@ const UserReviews = () => {
 :<div>
 <ul>
 <div>
+    {reviews.length != 0  ? <div></div>: <div>Кажется, здесь пусто...</div> }
                 {reviews.map(review => (
                     <li key={review.id}>
                         <div><Link to={`/Anime/${review.animeId}`}>{review.animeName}</Link></div>
