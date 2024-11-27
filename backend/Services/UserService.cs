@@ -30,7 +30,7 @@ public class UserService
     }
 
     public async Task<List<User>> GetAsync(string login, string sort, string order, string role) =>
-        await _userCollection.Find($"{{role: {{$regex: \"{role}\"}}, login: {{$regex: \"{login}\"}} }}").Sort($"{{ {sort}: {order} }}").ToListAsync();
+        await _userCollection.Find($"{{role: {{$regex: \"{role}\"}}, login: /{login}/i }}").Sort($"{{ {sort}: {order} }}").ToListAsync();
 
     public async Task<User?> GetAsync(string id) =>
         await _userCollection.Find(x => x.Id == id).FirstOrDefaultAsync();

@@ -31,7 +31,7 @@ public class AnimeService
     string ageRating, string sort, string order, string fromYear, string toYear, string page = "1"){
         if(toYear == "")
             toYear = string.Format("{0}", DateTime.Now.Year + 2);
-        var query = $"{{name: {{$regex: \"{name}\"}}";
+        var query = $"{{name:  /{name}/i";
         if (genres != ""){ 
             var genres_f = "\"" + string.Join("\",\"", genres.Split(',')) + "\"";
             query += $", genre: {{$all: [{genres_f}]}}";
