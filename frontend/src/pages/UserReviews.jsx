@@ -8,13 +8,19 @@ let base_url = 'http://localhost:5000/api/Review/User/'
 const UserReviews = () => {
     const {id} = useParams()
     const [reviews, setReviews] = useState([]);
-
+    const [login, setLogin] = useState();
 
     useEffect(() => {
-
+        fetchUser();
         fetchReviews();
     }, []);
 
+    const fetchUser = async () => {
+        let url = 'http://localhost:5000/api/User/' + id
+        const response = await fetch(url, {method: 'GET'});
+        const data = await response.json();
+        setLogin(data.login);
+    };
 
     const fetchReviews = async () => {
         let url = base_url + id
@@ -26,7 +32,7 @@ const UserReviews = () => {
 :<div>
 <ul>
 <div>
-    {reviews.length != 0  ? <div></div>: <div>Кажется, здесь пусто...</div> }
+    {reviews.length != 0  ? <div>Отзывы {login}</div>: <div>Кажется, здесь пусто...</div> }
                 {reviews.map(review => (
                     <li key={review.id}>
                         <div><Link to={`/Anime/${review.animeId}`}>{review.animeName}</Link></div>
