@@ -3,6 +3,7 @@ import { PrivateRoute } from '../components/PrivateRoute';
 import Main from '../pages/Main';
 import Login from '../pages/Login';
 import Admin from '../pages/Admin';
+import UserLogs from '../pages/UserLogs';
 import Anime from '../pages/Anime'
 import Logout from '../pages/LogOut';
 import UsersList from '../pages/UsersList'
@@ -18,6 +19,7 @@ export const useRoutes = () => {
             <Route path="/UsersList" element={<UsersList />} />
             <Route path="/Anime/:id" element={<Anime />} />
             <Route path="/UserReviews/:id" element={<UserReviews />} />
+            <Route path="/UserLogs/:id" element={<UserLogs />} />
             <Route path="/Logout" element={<Logout />} />
             <Route path="/User/:id" element={<User />} />
             <Route element={<PrivateRoute />}>

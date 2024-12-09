@@ -54,6 +54,7 @@ const User = () => {
                 ))}
             </div>
             <div><Link to={`/UserReviews/${id}`}>Отзывы</Link></div>
+            <div><Link to={`/UserLogs/${id}`}>Логи</Link></div>
     
 </ul>
 </div>
