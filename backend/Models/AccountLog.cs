@@ -5,8 +5,9 @@ namespace AnimeCatalogApi.Models;
 
 public enum LogType{
     create,
-    rename
-
+    rename,
+    rate,
+    review
 }
 public class AccountLog
 {
