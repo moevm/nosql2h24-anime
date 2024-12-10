@@ -25,7 +25,7 @@ public class User
 
     [BsonElement("role")]
     [BsonRepresentation(BsonType.String)]
-    public UserRole Role { get; set; }
+    public UserRole? Role { get; set; }
 
     [BsonElement("password")]
     public string? Password { get; set; }
@@ -43,8 +43,8 @@ public class User
     public int ReviewsCount {get; set; }
 
     [BsonElement("rates")]
-
-    public List<Rate> Rates {get; set; } = null!;
+    
+    public List<Rate>? Rates {get; set; } = null!;
 
     [BsonElement("account_logs")]
 

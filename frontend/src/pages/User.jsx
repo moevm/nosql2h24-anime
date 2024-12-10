@@ -54,6 +54,7 @@ const User = () => {
                 ))}
             </div>
             <div><Link to={`/UserReviews/${id}`}>Отзывы</Link></div>
+            <div><Link to={`/UserUpdate/${id}`}>Редактировать профиль</Link></div>
     
 </ul>
 </div>
