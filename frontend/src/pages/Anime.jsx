@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom'
+import AddReview from "../components/AddReview";
+import  EditReview  from '../components/EditReview';
 
 let base_url = 'http://localhost:5000/api/Anime/'
 let base_user_url = 'http://localhost:5000/api/User/'
@@ -15,6 +17,8 @@ const Anime = () => {
     const [anime, setAnime] = useState([]);
     const [users, setUsers] = useState();
     const [reviews, setReviews] = useState([]);
+    
+    const [editingReviewId, setEditingReviewId] = useState(null);
 
     useEffect(() => {
 
@@ -40,7 +44,23 @@ const Anime = () => {
             usersmap.set(review.userId,result )
             setUsers(true)})))
     };
+
+
+    const handleReviewAdded = (newReview) => {
+        setReviews((prevReviews) => [...prevReviews, newReview]);
+    };
+
+    const handleReviewUpdated = (updatedReview) => {
+        setReviews(
+            reviews.map((review) =>
+                review.id === updatedReview.id ? updatedReview : review
+            )
+        );
+        setEditingReviewId(null);
+    };
+
     const content = users === undefined ? <p>wait</p> 
+
 :<div>
 <ul>
            <div> Название: {anime.name}</div>
@@ -58,18 +78,54 @@ const Anime = () => {
            <div> Описание: {anime.description}</div>
            <div> Отзывы:</div>
            <div>
-                {reviews.map(review => (
-                    <li key={review.id}>
-                        <div><Link to={`/User/${review.userId}`}>{usersmap.get(review.userId).login}</Link></div>
-                        <div><img src={usersmap.get(review.userId).photoUrl} alt="Картинка" style={{ width: '30px', height: 'auto' }} /></div>
-                        <div>Дата: {review.date.split('T')[0]}</div>
-                        <div>Оценка: {review.rate}</div>
-                        <div>{review.text}</div>
+                    {reviews.map((review) => (
+                        <li key={review.id}>
+                            {editingReviewId === review.id ? (
+                                <EditReview
+                                    reviewId={review.id}
+                                    currentRate={review.rate}
+                                    currentText={review.text}
+                                    onReviewUpdated={handleReviewUpdated}
+                                />
+                            ) : (
+                                <div>
+                                    <div>
+                                        <Link to={`/User/${review.userId}`}>
+                                            {usersmap.get(review.userId).login}
+                                        </Link>
+                                    </div>
+                                    <div>
+                                        <img
+                                            src={usersmap.get(review.userId).photoUrl}
+                                            alt="Картинка"
+                                            style={{ width: '30px', height: 'auto' }}
+                                        />
+                                    </div>
+                                    <div>Дата: {review.date.split('T')[0]}</div>
+                                    <div>Оценка: {review.rate}</div>
+                                    <div>{review.text}</div>
+                                    {review.userId === sessionStorage.getItem("id") ? 
+                                   ( <button onClick={() => setEditingReviewId(review.id)}>
+                                        Изменить
+                                    </button>) : <div></div>}
+                                </div>
+                            )}
                         </li>
-                ))}
-            </div>
+                    ))}
+                </div>
     
 </ul>
+
+        <div>
+          <h2>Добавить отзыв:</h2>
+          {sessionStorage.getItem("id") ? 
+          (<AddReview
+            animeId={anime.id}
+            animeName={anime.name}
+            onReviewAdded={handleReviewAdded}
+          />) : (<div> Зарегистрируйтесь, чтобы писать отзывы</div>)}
+        </div>
+
 </div>
     return (
         <div>

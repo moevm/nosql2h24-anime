@@ -6,7 +6,7 @@ function Navbar() {
     return (
         <>
             <nav>
-                <p>{sessionStorage.getItem('login')}</p>{sessionStorage.getItem('login') ? <Link to="/logout">Logout</Link> : <Link to="/login">Login</Link>}
+                <p><Link to={`/User/${sessionStorage.getItem('id')}`}>{sessionStorage.getItem('login')}</Link></p>{sessionStorage.getItem('login') ? <Link to="/logout">Logout</Link> : <Link to="/login">Login</Link>}
             </nav>
         </>
     )
