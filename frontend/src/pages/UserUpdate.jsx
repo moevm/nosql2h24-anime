@@ -12,7 +12,7 @@ function EditUserForm({ userId, onUpdate }) {
     const fetchUserData = async () => {
       try {
         console.log(id);
-        const response = await fetch(`/api/User/${id}`);
+        const response = await fetch(`http://localhost:5000/api/User/${id}`);
         if (!response.ok) {
           throw new Error("Не удалось загрузить данные пользователя");
         }
@@ -39,7 +39,7 @@ function EditUserForm({ userId, onUpdate }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`/api/User/${id}`, {
+      const response = await fetch(`http://localhost:5000/api/User/${id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
