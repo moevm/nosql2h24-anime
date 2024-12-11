@@ -23,7 +23,7 @@ const AddReview = ({ animeId, animeName, onReviewAdded }) => {
 
     try {
       // Отправка запроса на сервер
-      const response = await fetch("http://localhost:5000/api/Review", {
+      const response = await fetch("http://localhost:3000/api/Review", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
