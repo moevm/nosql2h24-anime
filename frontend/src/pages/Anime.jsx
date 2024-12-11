@@ -3,22 +3,30 @@ import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom'
 
 let base_url = 'http://localhost:5000/api/Anime/'
+let base_user_url = 'http://localhost:5000/api/User/'
 
 let year = "";
 let genres = '';
 let names = ''
+var usersmap = new Map()
 
 const Anime = () => {
     const {id} = useParams()
     const [anime, setAnime] = useState([]);
+    const [users, setUsers] = useState();
     const [reviews, setReviews] = useState([]);
 
     useEffect(() => {
 
         fetchAnime();
     }, []);
-
-
+    
+    const fetchUser = async (user_id) => {
+        let url = base_user_url + user_id
+        const response = await fetch(url, {method: 'GET'});
+        const data = await response.json();
+        return data
+    };
     const fetchAnime = async () => {
         let url = base_url + id
         const response = await fetch(url, {method: 'GET'});
@@ -28,8 +36,11 @@ const Anime = () => {
         genres = data.genres.join(', ')
         names = data.otherNames.join(', ')
         setReviews(data.reviews)
+        await data.reviews.map(review => (fetchUser(review.userId).then((result) => {
+            usersmap.set(review.userId,result )
+            setUsers(true)})))
     };
-    const content = anime === undefined ? <p>wait</p> 
+    const content = users === undefined ? <p>wait</p> 
 :<div>
 <ul>
            <div> Название: {anime.name}</div>
@@ -49,8 +60,8 @@ const Anime = () => {
            <div>
                 {reviews.map(review => (
                     <li key={review.id}>
-                        <div><Link to={`/User/${review.userId}`}>{review.userName}</Link></div>
-                        <div><img src={review.photoUrl} alt="Картинка" style={{ width: '30px', height: 'auto' }} /></div>
+                        <div><Link to={`/User/${review.userId}`}>{usersmap.get(review.userId).login}</Link></div>
+                        <div><img src={usersmap.get(review.userId).photoUrl} alt="Картинка" style={{ width: '30px', height: 'auto' }} /></div>
                         <div>Дата: {review.date.split('T')[0]}</div>
                         <div>Оценка: {review.rate}</div>
                         <div>{review.text}</div>
