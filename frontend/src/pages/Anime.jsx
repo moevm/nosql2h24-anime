@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom'
+import AddReview from "../components/AddReview";
 
 let base_url = 'http://localhost:5000/api/Anime/'
 
@@ -29,6 +30,11 @@ const Anime = () => {
         names = data.otherNames.join(', ')
         setReviews(data.reviews)
     };
+
+    const handleReviewAdded = (newReview) => {
+        setReviews((prevReviews) => [...prevReviews, newReview]);
+    };
+
     const content = anime === undefined ? <p>wait</p> 
 :<div>
 <ul>
@@ -59,6 +65,16 @@ const Anime = () => {
             </div>
     
 </ul>
+
+        <div>
+          <h2>Добавить отзыв:</h2>
+          <AddReview
+            animeId={anime.id}
+            animeName={anime.name}
+            onReviewAdded={handleReviewAdded}
+          />
+        </div>
+
 </div>
     return (
         <div>
