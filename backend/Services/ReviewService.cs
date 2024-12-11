@@ -38,8 +38,10 @@ public class ReviewService
     public async Task<Review?> GetAsync(string id) =>
         await _reviewCollection.Find(x => x.Id == id).FirstOrDefaultAsync();
 
-    public async Task CreateAsync(Review newReview) =>
+    public async Task<string?> CreateAsync(Review newReview){
         await _reviewCollection.InsertOneAsync(newReview);
+        return newReview.Id;
+    }
 
     public async Task UpdateAsync(string id, Review updatedReview) =>
         await _reviewCollection.ReplaceOneAsync(x => x.Id == id, updatedReview);

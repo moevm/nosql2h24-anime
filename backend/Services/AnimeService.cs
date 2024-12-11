@@ -67,6 +67,11 @@ public class AnimeService
     public async Task<Anime?> GetAsyncById(string id) =>
         await _animeCollection.Find(x => x.Id == id).FirstOrDefaultAsync();
 
+    public async Task AddReview(string id, AnimeReview animeReview ) {
+        var update = Builders<Anime>.Update.Push(e => e.Reviews, animeReview);
+        await _animeCollection.UpdateOneAsync(e => e.Id == id, update);
+    }
+
     public async Task CreateAsync(Anime newAnime) =>
         await _animeCollection.InsertOneAsync(newAnime);
 
