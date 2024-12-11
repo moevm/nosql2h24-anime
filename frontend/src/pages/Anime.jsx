@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom'
+import AddReview from "../components/AddReview";
+import  EditReview  from '../components/EditReview';
 
 let base_url = 'http://localhost:5000/api/Anime/'
 
@@ -12,6 +14,8 @@ const Anime = () => {
     const {id} = useParams()
     const [anime, setAnime] = useState([]);
     const [reviews, setReviews] = useState([]);
+    
+    const [editingReviewId, setEditingReviewId] = useState(null);
 
     useEffect(() => {
 
@@ -29,6 +33,20 @@ const Anime = () => {
         names = data.otherNames.join(', ')
         setReviews(data.reviews)
     };
+
+    const handleReviewAdded = (newReview) => {
+        setReviews((prevReviews) => [...prevReviews, newReview]);
+    };
+
+    const handleReviewUpdated = (updatedReview) => {
+        setReviews(
+            reviews.map((review) =>
+                review.id === updatedReview.id ? updatedReview : review
+            )
+        );
+        setEditingReviewId(null);
+    };
+
     const content = anime === undefined ? <p>wait</p> 
 :<div>
 <ul>
@@ -47,18 +65,54 @@ const Anime = () => {
            <div> Описание: {anime.description}</div>
            <div> Отзывы:</div>
            <div>
-                {reviews.map(review => (
-                    <li key={review.id}>
-                        <div><Link to={`/User/${review.userId}`}>{review.userName}</Link></div>
-                        <div><img src={review.photoUrl} alt="Картинка" style={{ width: '30px', height: 'auto' }} /></div>
-                        <div>Дата: {review.date.split('T')[0]}</div>
-                        <div>Оценка: {review.rate}</div>
-                        <div>{review.text}</div>
+                    {reviews.map((review) => (
+                        <li key={review.id}>
+                            {editingReviewId === review.id ? (
+                                <EditReview
+                                    reviewId={review.id}
+                                    currentRate={review.rate}
+                                    currentText={review.text}
+                                    onReviewUpdated={handleReviewUpdated}
+                                />
+                            ) : (
+                                <div>
+                                    <div>
+                                        <Link to={`/User/${review.userId}`}>
+                                            {review.userName}
+                                        </Link>
+                                    </div>
+                                    <div>
+                                        <img
+                                            src={review.photoUrl}
+                                            alt="Картинка"
+                                            style={{ width: '30px', height: 'auto' }}
+                                        />
+                                    </div>
+                                    <div>Дата: {review.date.split('T')[0]}</div>
+                                    <div>Оценка: {review.rate}</div>
+                                    <div>{review.text}</div>
+                                    {review.userId === sessionStorage.getItem("id") ? 
+                                   ( <button onClick={() => setEditingReviewId(review.id)}>
+                                        Изменить
+                                    </button>) : <div></div>}
+                                </div>
+                            )}
                         </li>
-                ))}
-            </div>
+                    ))}
+                </div>
     
 </ul>
+
+        <div>
+          <h2>Добавить отзыв:</h2>
+          {sessionStorage.getItem("id") ? 
+          (<AddReview
+            animeId={anime.id}
+            animeName={anime.name}
+            onReviewAdded={handleReviewAdded}
+          />) : (<div> Зарегистрируйтесь, чтобы писать отзывы</div>)}
+        </div>
+
 </div>
     return (
         <div>
