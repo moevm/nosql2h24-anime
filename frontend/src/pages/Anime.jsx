@@ -91,9 +91,10 @@ const Anime = () => {
                                     <div>Дата: {review.date.split('T')[0]}</div>
                                     <div>Оценка: {review.rate}</div>
                                     <div>{review.text}</div>
-                                    <button onClick={() => setEditingReviewId(review.id)}>
+                                    {review.userId === sessionStorage.getItem("id") ? 
+                                   ( <button onClick={() => setEditingReviewId(review.id)}>
                                         Изменить
-                                    </button>
+                                    </button>) : <div></div>}
                                 </div>
                             )}
                         </li>
@@ -104,11 +105,12 @@ const Anime = () => {
 
         <div>
           <h2>Добавить отзыв:</h2>
-          <AddReview
+          {sessionStorage.getItem("id") ? 
+          (<AddReview
             animeId={anime.id}
             animeName={anime.name}
             onReviewAdded={handleReviewAdded}
-          />
+          />) : (<div> Зарегистрируйтесь, чтобы писать отзывы</div>)}
         </div>
 
 </div>
