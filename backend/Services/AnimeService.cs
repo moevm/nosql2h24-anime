@@ -20,7 +20,6 @@ public class AnimeService
             animeDatabaseSettings.Value.DatabaseName);
         _animeCollection = mongoDatabase.GetCollection<Anime>(
             animeDatabaseSettings.Value.AnimeCollectionName);
-        _animeCollection.DeleteMany("{}");
         if(_animeCollection.CountDocuments("{}") == 0){
         string text = System.IO.File.ReadAllText("./test_data/anime_db_anime.json");
         var document = BsonSerializer.Deserialize<List<Anime>>(text);

@@ -126,6 +126,7 @@ const Anime = () => {
           (<AddReview
             animeId={anime.id}
             animeName={anime.name}
+            coverurl={anime.coverUrl}
             onReviewAdded={handleReviewAdded}
           />) : (<div> Зарегистрируйтесь, чтобы писать отзывы</div>)}
         </div>

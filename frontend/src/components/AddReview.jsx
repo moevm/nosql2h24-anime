@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const AddReview = ({ animeId, animeName, onReviewAdded }) => {
+const AddReview = ({ animeId, animeName, coverurl, onReviewAdded }) => {
   const [userId, setUserId] = useState(sessionStorage.getItem("id"));
   const [rate, setRate] = useState(); // Оценка по умолчанию
   const [text, setText] = useState("");
@@ -14,7 +14,7 @@ const AddReview = ({ animeId, animeName, onReviewAdded }) => {
       userId: userId,
       animeId: animeId,
       animeName: animeName,
-      coverUrl: "", // Добавьте URL постера, если нужно
+      coverUrl: coverurl, // Добавьте URL постера, если нужно
       date: new Date().toISOString(),
       rate: rate,
       text: text,
@@ -23,7 +23,7 @@ const AddReview = ({ animeId, animeName, onReviewAdded }) => {
 
     try {
       // Отправка запроса на сервер
-      const response = await fetch("http://localhost:3000/api/Review", {
+      const response = await fetch("http://localhost:5000/api/Review", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
