@@ -30,8 +30,6 @@
         "$oid": "671aba5d6cf54cffac86b024"
       },
       "user_id": "6723bf69c39d0363592db535",
-      "user_name": "Osaka1998",
-      "photo_mini": "https://i.pinimg.com/originals/22/66/e9/2266e99326949dc3145670df47999ad3.jpg",
       "date": {
         "$date": {
           "$numberLong": "1729805229486"
@@ -86,8 +84,6 @@
         "$oid": "6721174201f64585eb86b01d"
       },
       "user_id": "6723bf69c39d0363592db535",
-      "user_name": "Osaka1998",
-      "photo_mini": "https://i.pinimg.com/originals/22/66/e9/2266e99326949dc3145670df47999ad3.jpg",
       "date": {
         "$date": {
           "$numberLong": "1729805229486"
@@ -142,8 +138,6 @@
         "$oid": "6721175501f64585eb86b01e"
       },
       "user_id": "6723bf69c39d0363592db535",
-      "user_name": "Osaka1998",
-      "photo_mini": "https://i.pinimg.com/originals/22/66/e9/2266e99326949dc3145670df47999ad3.jpg",
       "date": {
         "$date": {
           "$numberLong": "1729805229486"
@@ -201,8 +195,6 @@
         "$oid": "6721176101f64585eb86b01f"
       },
       "user_id": "6723bf69c39d0363592db535",
-      "user_name": "Osaka1998",
-      "photo_mini": "https://i.pinimg.com/originals/22/66/e9/2266e99326949dc3145670df47999ad3.jpg",
       "date": {
         "$date": {
           "$numberLong": "1729805229486"
@@ -256,8 +248,6 @@
         "$oid": "6721179201f64585eb86b020"
       },
       "user_id": "672cbf271ec7a93fafb3fe1e",
-      "user_name": "Osaka9498",
-      "photo_mini": "https://i.pinimg.com/originals/22/66/e9/2266e99326949dc3145670df47999ad3.jpg",
       "date": {
         "$date": {
           "$numberLong": "1729805229486"
@@ -314,8 +304,6 @@
         "$oid": "6721179201f64585eb86b021"
       },
       "user_id": "672cbf271ec7a93fafb3fe1e",
-      "user_name": "Osaka9498",
-      "photo_mini": "https://i.pinimg.com/originals/22/66/e9/2266e99326949dc3145670df47999ad3.jpg",
       "date": {
         "$date": {
           "$numberLong": "1729805229486"
@@ -369,8 +357,6 @@
         "$oid": "6721179701f64585eb86b022"
       },
       "user_id": "672cbf271ec7a93fafb3fe1e",
-      "user_name": "Osaka9498",
-      "photo_mini": "https://i.pinimg.com/originals/22/66/e9/2266e99326949dc3145670df47999ad3.jpg",
       "date": {
         "$date": {
           "$numberLong": "1729805229486"
@@ -427,8 +413,6 @@
         "$oid": "6721179801f64585eb86b023"
       },
       "user_id": "672cbf271ec7a93fafb3fe1e",
-      "user_name": "Osaka9498",
-      "photo_mini": "https://i.pinimg.com/originals/22/66/e9/2266e99326949dc3145670df47999ad3.jpg",
       "date": {
         "$date": {
           "$numberLong": "1729805229486"
