@@ -76,7 +76,16 @@ public class ReviewController : ControllerBase
 
         await _reviewService.UpdateAsync(id, updatedRev);
 
-        return NoContent();
+        AnimeReview animeReview = new AnimeReview();
+        animeReview.Date = updatedRev.Date;
+        animeReview.Id = id;
+        animeReview.UserId = updatedRev.UserId;
+        animeReview.Rate = updatedRev.Rate;
+        animeReview.Text = updatedRev.Text;
+        animeReview.Reccomendation = updatedRev.Reccomendation;
+        await _animeService.EditReview(updatedRev.AnimeId!, animeReview);
+
+        return Ok(updatedRev);
     }
 
     [HttpDelete("{id:length(24)}")]

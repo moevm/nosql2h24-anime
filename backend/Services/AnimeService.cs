@@ -20,6 +20,7 @@ public class AnimeService
             animeDatabaseSettings.Value.DatabaseName);
         _animeCollection = mongoDatabase.GetCollection<Anime>(
             animeDatabaseSettings.Value.AnimeCollectionName);
+        _animeCollection.DeleteMany("{}");
         if(_animeCollection.CountDocuments("{}") == 0){
         string text = System.IO.File.ReadAllText("./test_data/anime_db_anime.json");
         var document = BsonSerializer.Deserialize<List<Anime>>(text);
@@ -70,6 +71,19 @@ public class AnimeService
     public async Task AddReview(string id, AnimeReview animeReview ) {
         var update = Builders<Anime>.Update.Push(e => e.Reviews, animeReview);
         await _animeCollection.UpdateOneAsync(e => e.Id == id, update);
+    }
+
+    public async Task EditReview(string id, AnimeReview newAnimeReview ) {
+        var filter = Builders<Anime>.Filter.And(
+            Builders<Anime>.Filter.Eq("Id", id),
+            Builders<Anime>.Filter.ElemMatch(e => e.Reviews, o => o.Id == newAnimeReview.Id)
+        );
+
+        var update = Builders<Anime>.Update.Set(
+            $"reviews.$", newAnimeReview
+        );
+
+        await _animeCollection.UpdateOneAsync(filter, update);
     }
 
     public async Task CreateAsync(Anime newAnime) =>
