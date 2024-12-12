@@ -5,14 +5,17 @@ import AddReview from "../components/AddReview";
 import  EditReview  from '../components/EditReview';
 
 let base_url = 'http://localhost:5000/api/Anime/'
+let base_user_url = 'http://localhost:5000/api/User/'
 
 let year = "";
 let genres = '';
 let names = ''
+var usersmap = new Map()
 
 const Anime = () => {
     const {id} = useParams()
     const [anime, setAnime] = useState([]);
+    const [users, setUsers] = useState();
     const [reviews, setReviews] = useState([]);
     
     const [editingReviewId, setEditingReviewId] = useState(null);
@@ -21,8 +24,13 @@ const Anime = () => {
 
         fetchAnime();
     }, []);
-
-
+    
+    const fetchUser = async (user_id) => {
+        let url = base_user_url + user_id
+        const response = await fetch(url, {method: 'GET'});
+        const data = await response.json();
+        return data
+    };
     const fetchAnime = async () => {
         let url = base_url + id
         const response = await fetch(url, {method: 'GET'});
@@ -32,7 +40,11 @@ const Anime = () => {
         genres = data.genres.join(', ')
         names = data.otherNames.join(', ')
         setReviews(data.reviews)
+        await data.reviews.map(review => (fetchUser(review.userId).then((result) => {
+            usersmap.set(review.userId,result )
+            setUsers(true)})))
     };
+
 
     const handleReviewAdded = (newReview) => {
         setReviews((prevReviews) => [...prevReviews, newReview]);
@@ -47,7 +59,19 @@ const Anime = () => {
         setEditingReviewId(null);
     };
 
-    const content = anime === undefined ? <p>wait</p> 
+    const handleReviewDelete = async (reviewId) => {
+        const response = await fetch(`http://localhost:3000/api/Review/${reviewId}`, {
+            method: 'DELETE',
+        });
+        if (response.ok) {
+            setReviews(reviews.filter(review => review.id !== reviewId));
+        } else {
+            console.error('Ошибка удаления отзыва');
+        }
+    };
+
+    const content = users === undefined ? <p>wait</p>
+    
 :<div>
 <ul>
            <div> Название: {anime.name}</div>
@@ -72,18 +96,22 @@ const Anime = () => {
                                     reviewId={review.id}
                                     currentRate={review.rate}
                                     currentText={review.text}
+                                    coverurl={anime.coverUrl}
+                                    animeid={anime.id}
+                                    animename={anime.name}
+                                    rec={review.reccomendation}
                                     onReviewUpdated={handleReviewUpdated}
                                 />
                             ) : (
                                 <div>
                                     <div>
                                         <Link to={`/User/${review.userId}`}>
-                                            {review.userName}
+                                            {usersmap.get(review.userId).login}
                                         </Link>
                                     </div>
                                     <div>
                                         <img
-                                            src={review.photoUrl}
+                                            src={usersmap.get(review.userId).photoUrl}
                                             alt="Картинка"
                                             style={{ width: '30px', height: 'auto' }}
                                         />
@@ -92,9 +120,17 @@ const Anime = () => {
                                     <div>Оценка: {review.rate}</div>
                                     <div>{review.text}</div>
                                     {review.userId === sessionStorage.getItem("id") ? 
-                                   ( <button onClick={() => setEditingReviewId(review.id)}>
-                                        Изменить
-                                    </button>) : <div></div>}
+                                   (<div> 
+
+                                        <button onClick={() => setEditingReviewId(review.id)}>
+                                            Изменить
+                                        </button>
+
+                                        <button onClick={() => handleReviewDelete(review.id)}>
+                                            Удалить
+                                        </button>
+
+                                    </div>) : <div></div>}
                                 </div>
                             )}
                         </li>
