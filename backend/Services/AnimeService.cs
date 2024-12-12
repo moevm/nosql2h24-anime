@@ -97,4 +97,12 @@ public class AnimeService
 
     public async Task RemoveAsync(string id) =>
         await _animeCollection.DeleteOneAsync(x => x.Id == id);
+
+    public async Task RemoveReview(string animeId, string Id){
+        var filter = Builders<Anime>.Filter.Eq(e => e.Id, animeId);
+        var update = Builders<Anime>.Update.PullFilter(e => e.Reviews, c => c.Id == Id);
+
+       await _animeCollection.UpdateOneAsync(filter, update);
+
+    }
 }

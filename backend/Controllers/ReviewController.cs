@@ -98,6 +98,7 @@ public class ReviewController : ControllerBase
             return NotFound();
         }
 
+        await _animeService.RemoveReview(rev.AnimeId!, id);
         await _reviewService.RemoveAsync(id);
 
         return NoContent();
