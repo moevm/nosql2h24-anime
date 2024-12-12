@@ -59,8 +59,19 @@ const Anime = () => {
         setEditingReviewId(null);
     };
 
-    const content = users === undefined ? <p>wait</p> 
+    const handleReviewDelete = async (reviewId) => {
+        const response = await fetch(`http://localhost:5000/api/Review/${reviewId}`, {
+            method: 'DELETE',
+        });
+        if (response.ok) {
+            setReviews(reviews.filter(review => review.id !== reviewId));
+        } else {
+            console.error('Ошибка удаления отзыва');
+        }
+    };
 
+    const content = users === undefined ? <p>wait</p>
+   
 :<div>
 <ul>
            <div> Название: {anime.name}</div>
@@ -109,9 +120,17 @@ const Anime = () => {
                                     <div>Оценка: {review.rate}</div>
                                     <div>{review.text}</div>
                                     {review.userId === sessionStorage.getItem("id") ? 
-                                   ( <button onClick={() => setEditingReviewId(review.id)}>
-                                        Изменить
-                                    </button>) : <div></div>}
+                                   (<div> 
+
+                                        <button onClick={() => setEditingReviewId(review.id)}>
+                                            Изменить
+                                        </button>
+
+                                        <button onClick={() => handleReviewDelete(review.id)}>
+                                            Удалить
+                                        </button>
+
+                                    </div>) : <div></div>}
                                 </div>
                             )}
                         </li>
