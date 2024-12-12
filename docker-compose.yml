@@ -1,7 +1,6 @@
 services:
   backend:
     container_name: anime-backend
-    image: ${DOCKER_REGISTRY-}backend
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_HTTP_PORTS=8080
@@ -18,7 +17,6 @@ services:
   
   frontend:
     container_name: anime-frontend
-    image: ${DOCKER_REGISTRY-}frontend
     restart: on-failure
     ports:
      - "127.0.0.1:8000:80"
