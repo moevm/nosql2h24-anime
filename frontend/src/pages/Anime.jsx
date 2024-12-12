@@ -60,7 +60,7 @@ const Anime = () => {
     };
 
     const handleReviewDelete = async (reviewId) => {
-        const response = await fetch(`http://localhost:3000/api/Review/${reviewId}`, {
+        const response = await fetch(`http://localhost:5000/api/Review/${reviewId}`, {
             method: 'DELETE',
         });
         if (response.ok) {
