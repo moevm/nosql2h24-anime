@@ -60,7 +60,7 @@ const AddReview = ({ animeId, animeName, coverurl, onReviewAdded }) => {
           
         </div>
         <div>
-          <label>Оценка:</label>
+          {/*<label>Оценка:</label>
           <input
             type="number"
             value={rate}
@@ -68,7 +68,7 @@ const AddReview = ({ animeId, animeName, coverurl, onReviewAdded }) => {
             min="1"
             max="10"
             required
-          />
+          />*/}
         </div>
         <div>
           <label>Ваш отзыв:</label>

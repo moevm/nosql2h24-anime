@@ -38,8 +38,7 @@ const Anime = () => {
         if ( sessionStorage.getItem("id") != undefined){
         const u_response = await fetch(base_user_url + sessionStorage.getItem("id"), {method: 'GET'});
         const u_data = await u_response.json();
-        setUser(u_data);
-        }
+        setUser(u_data);}
         setAnime(data);
         year = data.year.split('T')[0]
         genres = data.genres.join(', ')
@@ -191,7 +190,7 @@ const Anime = () => {
                                         />
                                     </div>
                                     <div>Дата: {review.date.split('T')[0]}</div>
-                                    <div>Оценка: {review.rate}</div>
+                                    {/*<div>Оценка: {review.rate}</div>*/}
                                     <div>{review.text}</div>
                                     {review.userId === sessionStorage.getItem("id") ? 
                                    (<div> 
