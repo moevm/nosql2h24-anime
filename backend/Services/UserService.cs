@@ -21,7 +21,6 @@ public class UserService
 
         _userCollection = mongoDatabase.GetCollection<User>(
             userDatabaseSettings.Value.UserCollectionName);
-
         if(_userCollection.CountDocuments("{}") == 0){
         string text = System.IO.File.ReadAllText("./test_data/anime_db_user.json");
         var document = BsonSerializer.Deserialize<List<User>>(text);
@@ -46,6 +45,33 @@ public class UserService
     
     public async Task CreateAsync(User newUser) =>
         await _userCollection.InsertOneAsync(newUser);
+
+    public async Task AddRate(string id, Rate rate){
+        rate.Id = ObjectId.GenerateNewId().ToString();
+        var update = Builders<User>.Update.Push(e => e.Rates, rate);
+        await _userCollection.UpdateOneAsync(e => e.Id == id, update);
+    }
+    public async Task<Rate> ChangeRate(string id, Rate newrate){
+        newrate.Id = ObjectId.GenerateNewId().ToString();
+        var filter = Builders<User>.Filter.And(
+            Builders<User>.Filter.Eq("Id", id),
+            Builders<User>.Filter.ElemMatch(e => e.Rates, o => o.AnimeId == newrate.AnimeId)
+        );
+
+        var update = Builders<User>.Update.Set(
+            $"rates.$", newrate
+        );
+
+        var filter2 = Builders<User>.Filter.Eq(e => e.Id, id);
+        var entity = await _userCollection.Find(filter2).FirstOrDefaultAsync();
+
+        var subEntity = entity.Rates!.FirstOrDefault(se => se.AnimeId == newrate.AnimeId);
+        
+
+        await _userCollection.UpdateOneAsync(filter, update);
+        return subEntity!;
+
+    }
 
     public async Task UpdateAsync(string id, User updatedUser) =>
         await _userCollection.ReplaceOneAsync(x => x.Id == id, updatedUser);
