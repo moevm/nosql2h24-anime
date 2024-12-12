@@ -17,11 +17,10 @@ const Anime = () => {
     const [anime, setAnime] = useState([]);
     const [users, setUsers] = useState();
     const [reviews, setReviews] = useState([]);
-    
     const [editingReviewId, setEditingReviewId] = useState(null);
+    const [userRating, setUserRating] = useState(0); // Состояние для хранения оценки пользователя
 
     useEffect(() => {
-
         fetchAnime();
     }, []);
     
@@ -67,6 +66,29 @@ const Anime = () => {
             setReviews(reviews.filter(review => review.id !== reviewId));
         } else {
             console.error('Ошибка удаления отзыва');
+        }
+    };
+
+    const handleRatingChange = (event) => {
+        setUserRating(event.target.value);
+    };
+
+    const handleRatingSubmit = async () => {
+        const userId = sessionStorage.getItem("id");
+        const response = await fetch(`url_for_add_rate`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ userId, rating: userRating }),
+        });
+
+        if (response.ok) {
+            const updatedAnime = await response.json();
+            setAnime(updatedAnime);
+            alert('Оценка успешно добавлена!');
+        } else {
+            console.error('Failed to submit rating');
         }
     };
 
@@ -149,6 +171,22 @@ const Anime = () => {
           />) : (<div> Зарегистрируйтесь, чтобы писать отзывы</div>)}
         </div>
 
+        <div>
+            <h2>Оцените аниме:</h2>
+            {sessionStorage.getItem("id") ? (
+                <div>
+                    <select value={userRating} onChange={handleRatingChange}>
+                        <option value="0">Выберите оценку</option>
+                        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((rating) => (
+                            <option key={rating} value={rating}>{rating}</option>
+                        ))}
+                    </select>
+                    <button onClick={handleRatingSubmit}>Отправить оценку</button>
+                </div>
+            ) : (
+                <div> Зарегистрируйтесь, чтобы ставить оценки</div>
+            )}
+        </div>
 </div>
     return (
         <div>
