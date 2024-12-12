@@ -9,9 +9,12 @@ namespace AnimeCatalogApi.Controllers;
 public class UserController : ControllerBase
 {
     private readonly UserService _userService;
+    private readonly AnimeService _animeService;
 
-    public UserController(UserService userService) =>
+    public UserController(UserService userService, AnimeService animeService) {
         _userService = userService;
+        _animeService = animeService;
+    }
 
     [HttpGet]
     public async Task<List<User>> Get(string login = "", string sort = "registred_date", string order = "-1", string role = "") =>
@@ -73,6 +76,24 @@ public class UserController : ControllerBase
         updatedUser.Id = u.Id;
 
         await _userService.UpdateAsync(id, updatedUser);
+
+        return NoContent();
+    }
+
+    [HttpPost("Rate/{id:length(24)}", Name = "RateAnime")]
+    public async Task<IActionResult> Post(string id, Rate rate)
+    {
+        await _userService.AddRate(id, rate);
+        await _animeService.RateAnimeAsync(rate);
+
+        return NoContent();
+    }
+
+    [HttpPut("Rate/{id:length(24)}", Name = "ChangeRateAnime")]
+    public async Task<IActionResult> Put(string id, Rate newrate)
+    {
+        var old_rate = await _userService.ChangeRate(id, newrate);
+        await _animeService.ChangeRateAnimeAsync(newrate, old_rate.RateNum);
 
         return NoContent();
     }

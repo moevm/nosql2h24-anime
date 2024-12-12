@@ -88,15 +88,33 @@ public class AnimeService
     public async Task CreateAsync(Anime newAnime) =>
         await _animeCollection.InsertOneAsync(newAnime);
 
-    //public async Task RateAnimeAsync(int rate){
-       // return await _animeCollection.Aggregate()
-   // }
-
     public async Task UpdateAsync(string id, Anime updatedAnime) =>
         await _animeCollection.ReplaceOneAsync(x => x.Id == id, updatedAnime);
 
     public async Task RemoveAsync(string id) =>
         await _animeCollection.DeleteOneAsync(x => x.Id == id);
+
+    public async Task RateAnimeAsync(Rate rate){
+        var anime = await _animeCollection.Find(x => x.Id == rate.AnimeId).FirstOrDefaultAsync();
+        var rating = (anime.Rating * anime.RatesCount + rate.RateNum)/(anime.RatesCount + 1);
+
+        var filter = Builders<Anime>.Filter.Eq("Id", rate.AnimeId);
+        var update1 =  Builders<Anime>.Update.Inc(e => e.RatesCount, 1);
+        var update2 =  Builders<Anime>.Update.Set(e=>e.Rating, rating);
+
+        await _animeCollection.UpdateOneAsync(filter, update1);
+        await _animeCollection.UpdateOneAsync(filter, update2);
+    }
+
+    public async Task ChangeRateAnimeAsync(Rate rate, int oldRate){
+        var anime = await _animeCollection.Find(x => x.Id == rate.AnimeId).FirstOrDefaultAsync();
+        var rating = (anime.Rating * anime.RatesCount - oldRate + rate.RateNum)/(anime.RatesCount + 1);
+
+        var filter = Builders<Anime>.Filter.Eq("Id", rate.AnimeId);
+        var update =  Builders<Anime>.Update.Set(e=>e.Rating, rating);
+
+        await _animeCollection.UpdateOneAsync(filter, update);
+    }
 
     public async Task RemoveReview(string animeId, string Id){
         var filter = Builders<Anime>.Filter.Eq(e => e.Id, animeId);

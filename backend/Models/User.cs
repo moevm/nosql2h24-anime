@@ -44,7 +44,7 @@ public class User
 
     [BsonElement("rates")]
     
-    public List<Rate>? Rates {get; set; } = null!;
+    public List<Rate>? Rates {get; set; } = [];
 
     [BsonElement("account_logs")]
 
