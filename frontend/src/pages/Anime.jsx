@@ -35,9 +35,11 @@ const Anime = () => {
         let url = base_url + id
         const response = await fetch(url, {method: 'GET'});
         const data = await response.json();
+        if ( sessionStorage.getItem("id") != undefined){
         const u_response = await fetch(base_user_url + sessionStorage.getItem("id"), {method: 'GET'});
         const u_data = await u_response.json();
         setUser(u_data);
+        }
         setAnime(data);
         year = data.year.split('T')[0]
         genres = data.genres.join(', ')

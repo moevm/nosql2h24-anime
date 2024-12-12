@@ -15,7 +15,7 @@ public class User
     public string? Id { get; set; }
 
     [BsonElement("photo")]
-    public string PhotoUrl { get; set; } = null!;
+    public string? PhotoUrl { get; set; } = null!;
 
     [BsonElement("login")]
     public string? Login { get; set; }

@@ -19,6 +19,7 @@ builder.Services.Configure<UserDatabaseSettings>(
 builder.Services.AddSingleton<AnimeService>();
 builder.Services.AddSingleton<UserService>();
 builder.Services.AddSingleton<ReviewService>();
+builder.Services.AddSingleton<DatabaseService>();
 
 
 var app = builder.Build();

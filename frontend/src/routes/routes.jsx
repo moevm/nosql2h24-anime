@@ -10,6 +10,7 @@ import UsersList from '../pages/UsersList'
 import UserReviews from '../pages/UserReviews'
 import UserUpdate from '../pages/UserUpdate'
 import User from '../pages/User'
+import Import from '../pages/Import'
 export const useRoutes = () => {
 
     return (
@@ -21,6 +22,7 @@ export const useRoutes = () => {
             <Route path="/Anime/:id" element={<Anime />} />
             <Route path="/UserReviews/:id" element={<UserReviews />} />
             <Route path="/UserLogs/:id" element={<UserLogs />} />
+            <Route path="/Import" element={<Import />} />
             <Route path="/Logout" element={<Logout />} />
             <Route path="/User/:id" element={<User />} />
             <Route path="/UserUpdate/:id" element={<UserUpdate />} />
