@@ -17,11 +17,11 @@ const Anime = () => {
     const [anime, setAnime] = useState([]);
     const [users, setUsers] = useState();
     const [reviews, setReviews] = useState([]);
-    
     const [editingReviewId, setEditingReviewId] = useState(null);
+    const [userRating, setUserRating] = useState(0); // Состояние для хранения оценки пользователя
+    const [curr_user, setUser] = useState();
 
     useEffect(() => {
-
         fetchAnime();
     }, []);
     
@@ -35,14 +35,21 @@ const Anime = () => {
         let url = base_url + id
         const response = await fetch(url, {method: 'GET'});
         const data = await response.json();
+        const u_response = await fetch(base_user_url + sessionStorage.getItem("id"), {method: 'GET'});
+        const u_data = await u_response.json();
+        setUser(u_data);
         setAnime(data);
         year = data.year.split('T')[0]
         genres = data.genres.join(', ')
         names = data.otherNames.join(', ')
         setReviews(data.reviews)
         await data.reviews.map(review => (fetchUser(review.userId).then((result) => {
-            usersmap.set(review.userId,result )
-            setUsers(true)})))
+            usersmap.set(review.userId,result );
+            setUsers(true);})
+        
+        ))
+        if (data.reviews.length == 0)
+            setUsers(true)  
     };
 
 
@@ -69,6 +76,71 @@ const Anime = () => {
             console.error('Ошибка удаления отзыва');
         }
     };
+
+    const handleRatingChange = (event) => {
+        setUserRating(event.target.value);
+    };
+
+    const handleRatingSubmit = async () => {
+        const userId = sessionStorage.getItem("id");
+        const rate = {
+            userId: userId,
+            animeId: anime.id,
+            animeName: anime.name,
+            date: new Date(),
+            rateNum: userRating
+          };
+        const response = await fetch(`http://localhost:5000/api/User/Rate/${userId}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(rate),
+        });
+
+    };
+
+    const handleChangeRatingSubmit= async () => {
+        const userId = sessionStorage.getItem("id");
+        const rate = {
+            userId: userId,
+            animeId: anime.id,
+            animeName: anime.name,
+            date: new Date(),
+            rateNum: userRating,
+          };
+          const response = await fetch(`http://localhost:5000/api/User/Rate/${userId}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(rate),
+        });
+
+    };
+
+    const isRated = (id) => {
+        var b = curr_user.rates
+        
+        console.log(b.filter((elem) => {
+            return elem.animeId == id
+        }))
+        return b.filter((elem) => {
+            return elem.animeId == id
+        }).length > 0;
+    }
+
+    const getRate = (id) => {
+        var b = curr_user.rates
+        var r = ""
+        b.forEach(element => {
+            if (element.animeId == id){
+                console.log(element.rateNum)
+                r = element.rateNum
+            }
+        });
+        return r;
+    }
 
     const content = users === undefined ? <p>wait</p>
    
@@ -150,6 +222,27 @@ const Anime = () => {
           />) : (<div> Зарегистрируйтесь, чтобы писать отзывы</div>)}
         </div>
 
+        <div>
+            <h2>Оцените аниме:</h2>
+            {sessionStorage.getItem("id") ? (
+                <div>
+                    { !isRated(anime.id) ?
+                    (<button onClick={handleRatingSubmit}>Отправить оценку</button>) : 
+                    ( <div> <div> Ваша оценка {getRate(anime.id)} </div>  <button onClick={handleChangeRatingSubmit}>Изменить оценку</button> </div>)
+                    }
+
+                    <select value={userRating} onChange={handleRatingChange}>
+                        <option value="0">Выберите оценку</option>
+                        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((rating) => (
+                            <option key={rating} value={rating}>{rating}</option>
+                        ))}
+                    </select>
+              
+                </div>
+            ) : (
+                <div> Зарегистрируйтесь, чтобы ставить оценки</div>
+            )}
+        </div>
 </div>
     return (
         <div>
