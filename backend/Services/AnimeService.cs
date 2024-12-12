@@ -106,7 +106,7 @@ public class AnimeService
         await _animeCollection.UpdateOneAsync(filter, update2);
     }
 
-    public async Task ChangeRateAnimeAsync(Rate rate, int oldRate){
+    public async Task ChangeRateAnimeAsync(Rate rate, int oldRate, string userId){
         var anime = await _animeCollection.Find(x => x.Id == rate.AnimeId).FirstOrDefaultAsync();
         var rating = (anime.Rating * anime.RatesCount - oldRate + rate.RateNum)/(anime.RatesCount + 1);
 
@@ -114,6 +114,16 @@ public class AnimeService
         var update =  Builders<Anime>.Update.Set(e=>e.Rating, rating);
 
         await _animeCollection.UpdateOneAsync(filter, update);
+
+        var filter2 = Builders<Anime>.Filter.And(
+        Builders<Anime>.Filter.Eq(e => e.Id, rate.AnimeId),
+        Builders<Anime>.Filter.ElemMatch(e => e.Reviews, se => se.UserId == userId));
+
+        var update2 = Builders<Anime>.Update.Set($"reviews.$.rate", rate.RateNum);
+
+        var result = await _animeCollection.UpdateOneAsync(filter2, update2);
+
+
     }
 
     public async Task RemoveReview(string animeId, string Id){

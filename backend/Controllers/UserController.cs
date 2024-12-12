@@ -10,10 +10,12 @@ public class UserController : ControllerBase
 {
     private readonly UserService _userService;
     private readonly AnimeService _animeService;
+    private readonly ReviewService _reviewService;
 
-    public UserController(UserService userService, AnimeService animeService) {
+    public UserController(UserService userService, AnimeService animeService, ReviewService revService) {
         _userService = userService;
         _animeService = animeService;
+        _reviewService = revService;
     }
 
     [HttpGet]
@@ -93,8 +95,8 @@ public class UserController : ControllerBase
     public async Task<IActionResult> Put(string id, Rate newrate)
     {
         var old_rate = await _userService.ChangeRate(id, newrate);
-        await _animeService.ChangeRateAnimeAsync(newrate, old_rate.RateNum);
-
+        await _animeService.ChangeRateAnimeAsync(newrate, old_rate.RateNum, id);
+        await _reviewService.ChangeRate(newrate.AnimeId!, id, newrate.RateNum);
         return NoContent();
     }
 

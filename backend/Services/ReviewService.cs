@@ -21,7 +21,6 @@ public class ReviewService
 
         _reviewCollection = mongoDatabase.GetCollection<Review>(
             reviewDatabaseSettings.Value.ReviewCollectionName);
-
         if(_reviewCollection.CountDocuments("{}") == 0){
         string text = System.IO.File.ReadAllText("./test_data/anime_db_review.json");
         var document = BsonSerializer.Deserialize<List<Review>>(text);
@@ -41,6 +40,15 @@ public class ReviewService
     public async Task<string?> CreateAsync(Review newReview){
         await _reviewCollection.InsertOneAsync(newReview);
         return newReview.Id;
+    }
+
+    public async Task ChangeRate(string animeId, string userId, int rate){
+        var filter = Builders<Review>.Filter.And(
+        Builders<Review>.Filter.Eq(e => e.AnimeId, animeId),
+        Builders<Review>.Filter.Eq(e => e.UserId, userId));
+        var update =  Builders<Review>.Update.Set(e=>e.Rate, rate);
+
+        await _reviewCollection.UpdateOneAsync(filter, update);
     }
 
     public async Task UpdateAsync(string id, Review updatedReview) =>

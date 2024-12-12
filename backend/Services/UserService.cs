@@ -67,7 +67,6 @@ public class UserService
 
         var subEntity = entity.Rates!.FirstOrDefault(se => se.AnimeId == newrate.AnimeId);
         
-
         await _userCollection.UpdateOneAsync(filter, update);
         return subEntity!;
 
