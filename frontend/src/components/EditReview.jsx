@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const EditReview = ({ reviewId, currentRate, currentText, onReviewUpdated }) => {
+const EditReview = ({ reviewId, currentRate, currentText, coverurl, animeid, animename, rec, onReviewUpdated }) => {
     const [rate, setRate] = useState(currentRate); // Текущая оценка
     const [text, setText] = useState(currentText); // Текущий текст
     const [error, setError] = useState(null);
@@ -14,8 +14,14 @@ const EditReview = ({ reviewId, currentRate, currentText, onReviewUpdated }) => 
       e.preventDefault();
   
       const updatedReview = {
+        userId: sessionStorage.getItem("id"),
+        animeId: animeid,
+        animeName: animename,
+        date: new Date(),
         rate: rate,
         text: text,
+        coverUrl: coverurl,
+        reccomendation: rec
       };
   
       try {

@@ -67,6 +67,24 @@ public class AnimeService
     public async Task<Anime?> GetAsyncById(string id) =>
         await _animeCollection.Find(x => x.Id == id).FirstOrDefaultAsync();
 
+    public async Task AddReview(string id, AnimeReview animeReview ) {
+        var update = Builders<Anime>.Update.Push(e => e.Reviews, animeReview);
+        await _animeCollection.UpdateOneAsync(e => e.Id == id, update);
+    }
+
+    public async Task EditReview(string id, AnimeReview newAnimeReview ) {
+        var filter = Builders<Anime>.Filter.And(
+            Builders<Anime>.Filter.Eq("Id", id),
+            Builders<Anime>.Filter.ElemMatch(e => e.Reviews, o => o.Id == newAnimeReview.Id)
+        );
+
+        var update = Builders<Anime>.Update.Set(
+            $"reviews.$", newAnimeReview
+        );
+
+        await _animeCollection.UpdateOneAsync(filter, update);
+    }
+
     public async Task CreateAsync(Anime newAnime) =>
         await _animeCollection.InsertOneAsync(newAnime);
 
@@ -79,4 +97,12 @@ public class AnimeService
 
     public async Task RemoveAsync(string id) =>
         await _animeCollection.DeleteOneAsync(x => x.Id == id);
+
+    public async Task RemoveReview(string animeId, string Id){
+        var filter = Builders<Anime>.Filter.Eq(e => e.Id, animeId);
+        var update = Builders<Anime>.Update.PullFilter(e => e.Reviews, c => c.Id == Id);
+
+       await _animeCollection.UpdateOneAsync(filter, update);
+
+    }
 }

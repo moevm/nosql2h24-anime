@@ -9,9 +9,13 @@ namespace AnimeCatalogApi.Controllers;
 public class ReviewController : ControllerBase
 {
     private readonly ReviewService _reviewService;
+    private readonly AnimeService _animeService;
 
-    public ReviewController(ReviewService revService) =>
+    public ReviewController(ReviewService revService, AnimeService animeService){
         _reviewService = revService;
+        _animeService = animeService;
+    }
+        
 
     [HttpGet]
     public async Task<List<Review>> Get() =>
@@ -46,8 +50,15 @@ public class ReviewController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> Post(Review newRev)
     {
-        await _reviewService.CreateAsync(newRev);
-
+        var Id = await _reviewService.CreateAsync(newRev);
+        AnimeReview animeReview = new AnimeReview();
+        animeReview.Date = newRev.Date;
+        animeReview.Id = Id;
+        animeReview.UserId = newRev.UserId;
+        animeReview.Rate = newRev.Rate;
+        animeReview.Text = newRev.Text;
+        animeReview.Reccomendation = newRev.Reccomendation;
+        await _animeService.AddReview(newRev.AnimeId!, animeReview);
         return CreatedAtAction(nameof(Get), new { id = newRev.Id }, newRev);
     }
 
@@ -65,7 +76,16 @@ public class ReviewController : ControllerBase
 
         await _reviewService.UpdateAsync(id, updatedRev);
 
-        return NoContent();
+        AnimeReview animeReview = new AnimeReview();
+        animeReview.Date = updatedRev.Date;
+        animeReview.Id = id;
+        animeReview.UserId = updatedRev.UserId;
+        animeReview.Rate = updatedRev.Rate;
+        animeReview.Text = updatedRev.Text;
+        animeReview.Reccomendation = updatedRev.Reccomendation;
+        await _animeService.EditReview(updatedRev.AnimeId!, animeReview);
+
+        return Ok(updatedRev);
     }
 
     [HttpDelete("{id:length(24)}")]
@@ -78,6 +98,7 @@ public class ReviewController : ControllerBase
             return NotFound();
         }
 
+        await _animeService.RemoveReview(rev.AnimeId!, id);
         await _reviewService.RemoveAsync(id);
 
         return NoContent();

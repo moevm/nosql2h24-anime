@@ -60,6 +60,6 @@ public class Anime
 
     [BsonElement("reviews")]
 
-    public List<AnimeReview> reviews {get; set; } = null!;
+    public List<AnimeReview> Reviews {get; set; } = null!;
 
 }
