@@ -85,6 +85,10 @@ const Anime = () => {
                                     reviewId={review.id}
                                     currentRate={review.rate}
                                     currentText={review.text}
+                                    coverurl={anime.coverUrl}
+                                    animeid={anime.id}
+                                    animename={anime.name}
+                                    rec={review.reccomendation}
                                     onReviewUpdated={handleReviewUpdated}
                                 />
                             ) : (
