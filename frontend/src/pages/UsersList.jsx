@@ -120,7 +120,7 @@ const UsersList = () => {
         </div>
         <div>
         <label>
-          Минимум обзоров: {minValue}
+          Минимум обзоров: {minValue} <p>
           <input
             type="range"
             min="0"
@@ -128,11 +128,12 @@ const UsersList = () => {
             value={minValue}
             onChange={(e) => {handleChangeMinValue(e)}}
           />
+          </p>
         </label>
       </div>
       <div>
         <label>
-          Максимум обзоров: {maxValue}
+          Максимум обзоров: {maxValue} <p>
           <input
             type="range"
             min="0"
@@ -140,11 +141,12 @@ const UsersList = () => {
             value={maxValue}
             onChange={(e) => {handleChangeMaxValue(e)}}
           />
+          </p>
         </label>
       </div>
       <div>
         <label>
-          Минимум оценок: {minRatesValue}
+          Минимум оценок: {minRatesValue} <p>
           <input
             type="range"
             min="0"
@@ -152,18 +154,19 @@ const UsersList = () => {
             value={minRatesValue}
             onChange={(e) => {handleChangeMinRatesValue(e)}}
           />
+          </p>
         </label>
       </div>
       <div>
         <label>
-          Максимум оценок: {maxRatesValue}
+          Максимум оценок: {maxRatesValue} <p>
           <input
             type="range"
             min="0"
             max="1000"
             value={maxRatesValue}
             onChange={(e) => {handleChangeMaxRatesValue(e)}}
-          />
+          /></p>
         </label>
       </div>
             <ul>
