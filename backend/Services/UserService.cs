@@ -50,6 +50,9 @@ public class UserService
         rate.Id = ObjectId.GenerateNewId().ToString();
         var update = Builders<User>.Update.Push(e => e.Rates, rate);
         await _userCollection.UpdateOneAsync(e => e.Id == id, update);
+
+        update =  Builders<User>.Update.Inc(e => e.RatesCount, 1);
+        await _userCollection.UpdateOneAsync(e => e.Id == id, update);
     }
     public async Task<Rate> ChangeRate(string id, Rate newrate){
         newrate.Id = ObjectId.GenerateNewId().ToString();
@@ -70,6 +73,11 @@ public class UserService
         await _userCollection.UpdateOneAsync(filter, update);
         return subEntity!;
 
+    }
+
+    public async Task IncReview(string id, int val){
+        var update =  Builders<User>.Update.Inc(e => e.ReviewsCount, val);
+        await _userCollection.UpdateOneAsync(e => e.Id == id, update);
     }
 
     public async Task UpdateAsync(string id, User updatedUser) =>

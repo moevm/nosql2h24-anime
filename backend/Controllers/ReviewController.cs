@@ -10,10 +10,12 @@ public class ReviewController : ControllerBase
 {
     private readonly ReviewService _reviewService;
     private readonly AnimeService _animeService;
+    private readonly UserService _userService;
 
-    public ReviewController(ReviewService revService, AnimeService animeService){
+    public ReviewController(ReviewService revService, AnimeService animeService, UserService uService){
         _reviewService = revService;
         _animeService = animeService;
+        _userService = uService;
     }
         
 
@@ -59,6 +61,7 @@ public class ReviewController : ControllerBase
         animeReview.Text = newRev.Text;
         animeReview.Reccomendation = newRev.Reccomendation;
         await _animeService.AddReview(newRev.AnimeId!, animeReview);
+        await _userService.IncReview(newRev.UserId!, 1);
         return CreatedAtAction(nameof(Get), new { id = newRev.Id }, newRev);
     }
 
@@ -97,10 +100,9 @@ public class ReviewController : ControllerBase
         {
             return NotFound();
         }
-
+        await _userService.IncReview(rev.UserId!, -1);
         await _animeService.RemoveReview(rev.AnimeId!, id);
         await _reviewService.RemoveAsync(id);
-
         return NoContent();
     }
 }
