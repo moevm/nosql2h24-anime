@@ -19,8 +19,9 @@ public class UserController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<List<User>> Get(string login = "", string sort = "registred_date", string order = "-1", string role = "") =>
-        await _userService.GetAsync(login, sort, order, role);
+    public async Task<List<User>> Get(string login = "", string sort = "registred_date", string order = "-1", string role = "",
+    string fromDate = "", string toDate = "", int minRates = 0, int maxRates = 0, int minReviews = 0, int maxReviews = 0) =>
+        await _userService.GetAsync(login, sort, order, role, fromDate, toDate, minRates, maxRates, minReviews, maxReviews);
 
     [HttpGet("{id:length(24)}")]
     public async Task<ActionResult<User>> Get(string id)

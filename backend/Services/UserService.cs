@@ -3,6 +3,7 @@ using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization;
+using System.Text.RegularExpressions;
 
 namespace AnimeCatalogApi.Services;
 
@@ -28,8 +29,24 @@ public class UserService
         }
     }
 
-    public async Task<List<User>> GetAsync(string login, string sort, string order, string role) =>
-        await _userCollection.Find($"{{role: {{$regex: \"{role}\"}}, login: /{login}/i }}").Sort($"{{ {sort}: {order} }}").ToListAsync();
+    public async Task<List<User>> GetAsync(string login, string sort, string order, string role, 
+    string fromDate, string toDate, int minRates, int maxRates, int minReviews, int maxReviews){
+        if(fromDate == "")
+            fromDate = string.Format("{0}", DateTime.MinValue);
+        if(toDate == "")
+            toDate = string.Format("{0}", DateTime.Now);
+        var filter = Builders<User>.Filter.And(
+            Builders<User>.Filter.Regex(x => x.Role, new BsonRegularExpression(role)),
+            Builders<User>.Filter.Regex(x => x.Login, new BsonRegularExpression(login, "i")),
+            Builders<User>.Filter.AnyGte("registred_at", DateTime.Parse(fromDate)),
+            Builders<User>.Filter.AnyLte("registred_at", DateTime.Parse(toDate)),
+            Builders<User>.Filter.AnyGte("rates_count", minRates),
+            Builders<User>.Filter.AnyLte("rates_count", maxRates),
+            Builders<User>.Filter.AnyGte("reviews_count", minReviews),
+            Builders<User>.Filter.AnyLte("reviews_count",maxReviews)
+        );
+        return await _userCollection.Find(filter).Sort($"{{ {sort}: {order} }}").ToListAsync();
+    }
 
     public async Task<User?> GetAsync(string id) =>
         await _userCollection.Find(x => x.Id == id).FirstOrDefaultAsync();
