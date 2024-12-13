@@ -52,7 +52,7 @@ const EditReview = ({ reviewId, currentRate, currentText, coverurl, animeid, ani
       <div>
         <h2>Изменить отзыв</h2>
         <form onSubmit={handleUpdate}>
-          <div>
+          {/*<div>
             <label>Оценка:</label>
             <input
               type="number"
@@ -62,7 +62,7 @@ const EditReview = ({ reviewId, currentRate, currentText, coverurl, animeid, ani
               max="10"
               required
             />
-          </div>
+          </div>*/}
           <div>
             <label>Ваш отзыв:</label>
             <textarea
