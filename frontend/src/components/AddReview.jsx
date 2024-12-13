@@ -39,7 +39,6 @@ const AddReview = ({ animeId, animeName, coverurl, onReviewAdded }) => {
       console.log("Отзыв добавлен", result);
 
       // Очистка формы и вызов коллбэка
-      setUserId("");
       setRate();
       setText("");
       setError(null);

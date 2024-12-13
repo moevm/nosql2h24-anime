@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom'
 import AddReview from "../components/AddReview";
 import  EditReview  from '../components/EditReview';
+import axios from "axios";
 
 let base_url = 'http://localhost:5000/api/Anime/'
 let base_user_url = 'http://localhost:5000/api/User/'
@@ -31,26 +32,35 @@ const Anime = () => {
         const data = await response.json();
         return data
     };
-    const fetchAnime = async () => {
-        let url = base_url + id
-        const response = await fetch(url, {method: 'GET'});
-        const data = await response.json();
-        if ( sessionStorage.getItem("id") != undefined){
-        const u_response = await fetch(base_user_url + sessionStorage.getItem("id"), {method: 'GET'});
-        const u_data = await u_response.json();
-        setUser(u_data);}
-        setAnime(data);
-        year = data.year.split('T')[0]
-        genres = data.genres.join(', ')
-        names = data.otherNames.join(', ')
-        setReviews(data.reviews)
-        await data.reviews.map(review => (fetchUser(review.userId).then((result) => {
-            usersmap.set(review.userId,result );
-            setUsers(true);})
+    function fetchAnime ()  {
+        axios
+                    .get(base_url + id)
+                    .then((response) => {
+                        const data =  response.data;
+                        if ( sessionStorage.getItem("id") != undefined){
+                            axios.get(base_user_url + sessionStorage.getItem("id"))
+                            .then((response) => { const u_data =  response.data;
+                                setUser(u_data);
+                            })
+                        }
+                        setAnime(data);
+                        year = data.year.split('T')[0]
+                        genres = data.genres.join(', ')
+                        names = data.otherNames.join(', ')
+                        setReviews(data.reviews)
+                        data.reviews.map(review => (fetchUser(review.userId).then((result) => {
+                            usersmap.set(review.userId,result );
+                            setUsers(true);})
+                        
+                        ))
+                        if (data.reviews.length == 0)
+                            setUsers(true)  
+                    })
+                    .catch((error) => {
+                        console.error("Ошибка", error);
+                    });
+
         
-        ))
-        if (data.reviews.length == 0)
-            setUsers(true)  
     };
 
 
@@ -98,7 +108,7 @@ const Anime = () => {
             },
             body: JSON.stringify(rate),
         });
-
+        window.location.reload();
     };
 
     const handleChangeRatingSubmit= async () => {
@@ -117,10 +127,12 @@ const Anime = () => {
             },
             body: JSON.stringify(rate),
         });
-
+        window.location.reload();
     };
 
     const isRated = (id) => {
+        if(curr_user == undefined)
+            return false
         var b = curr_user.rates
         
         console.log(b.filter((elem) => {
@@ -177,7 +189,9 @@ const Anime = () => {
                                 />
                             ) : (
                                 <div>
-                                    <div>
+                                    {usersmap.get(review.userId) != undefined ?
+                                    (<div>
+                                        <div>
                                         <Link to={`/User/${review.userId}`}>
                                             {usersmap.get(review.userId).login}
                                         </Link>
@@ -189,6 +203,28 @@ const Anime = () => {
                                             style={{ width: '30px', height: 'auto' }}
                                         />
                                     </div>
+                                    </div>) : review.userId == sessionStorage.getItem("id")  ? 
+                                    (<div>
+                                        <div>
+                                        <Link to={`/User/${review.userId}`}>
+                                            {sessionStorage.getItem("login")}
+                                        </Link>
+                                    </div>
+                                    <div>
+                                        <img
+                                            src={curr_user.photoUrl}
+                                            alt="Картинка"
+                                            style={{ width: '30px', height: 'auto' }}
+                                        />
+                                    </div>
+                                    </div>)
+                                     : <div> </div>
+                                    
+                                    }
+                                    
+
+
+
                                     <div>Дата: {review.date.split('T')[0]}</div>
                                     {/*<div>Оценка: {review.rate}</div>*/}
                                     <div>{review.text}</div>
