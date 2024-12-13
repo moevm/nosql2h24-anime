@@ -11,6 +11,7 @@ const Poster = (props) => {
                     <div><img src={props.post.coverUrl} alt="Картинка" style={{ width: '30px', height: 'auto' }} />
                     <p>{props.post.type}</p>
                     <p>Рейтинг {Math.round(props.post.rating*10)/10}</p>
+                    <p>Количество оценок: {props.post.ratesCount}</p>
                     <p>Жанр: {props.post.genres.join(', ')}</p>
                     </div>
                 </div>
