@@ -156,7 +156,7 @@ const Anime = () => {
            <div> Другие названия: {names}</div>
            <div> Возрастной рейтинг: {anime.ageRating}</div>
            <div> Студия: {anime.studio}</div>
-           <div> Рейтинг: {anime.rating}</div>
+           <div> Рейтинг: {Math.round(anime.rating*10)/10}</div>
            <div> Количество оценок: {anime.ratesCount}</div>
            <div> <img src={anime.coverUrl} alt="Картинка" style={{ width: '300px', height: 'auto' }} /></div>
            <div> Описание: {anime.description}</div>

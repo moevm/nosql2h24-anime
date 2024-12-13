@@ -57,7 +57,7 @@ const Main = () => {
     const [totalPages, setTotalPages] = useState(1);
 
     const [anime, setAnime] = useState();
-
+    const [datalength, setTotalDataLength] = useState();
     const handlePageChange = (page) => {
         if (page > 0 && page <= totalPages) { // Проверяем, что страница в допустимом диапазоне
             setCurrentPage(page);
@@ -186,6 +186,7 @@ const Main = () => {
             <label>
             <input type="radio" value=""  name="radio" onChange={e => Sort("name", "1")}/>  По названию
         </label>
+        <p>Найдено {datalength} элементов</p>
     </div>
         <br />
         <div className="container">
@@ -296,6 +297,7 @@ const Main = () => {
 
             const response = await fetch(url, {method: 'GET'});//url
             const allData = await response.json();
+            setTotalDataLength(allData.length);
             setTotalPages(Math.ceil(allData.length / 3));
             const response_page = await fetch(url_page, {method: 'GET'});
             const data = await response_page.json();
