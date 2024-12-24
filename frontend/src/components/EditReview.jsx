@@ -52,17 +52,7 @@ const EditReview = ({ reviewId, currentRate, currentText, coverurl, animeid, ani
       <div>
         <h2>Изменить отзыв</h2>
         <form onSubmit={handleUpdate}>
-          {/*<div>
-            <label>Оценка:</label>
-            <input
-              type="number"
-              value={rate}
-              onChange={(e) => setRate(Number(e.target.value))}
-              min="1"
-              max="10"
-              required
-            />
-          </div>*/}
+          {}
           <div>
             <label>Ваш отзыв:</label>
             <textarea
