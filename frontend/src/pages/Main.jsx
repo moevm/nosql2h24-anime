@@ -270,7 +270,7 @@ const Main = () => {
             Special = ''
         getData()
     }
-//need rework - click enter -> list changed
+
     async function searchByName(newname) {
         name = '&name=' + newname
         getData()
@@ -293,7 +293,6 @@ const Main = () => {
 
             console.log("currentPage = " + currentPage);
             console.log("totalPages = " + totalPages);
-            //console.log("handlePageChange = " + handlePageChange);
 
             const response = await fetch(url, {method: 'GET'});//url
             const allData = await response.json();
