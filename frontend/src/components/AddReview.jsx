@@ -18,7 +18,7 @@ const AddReview = ({ animeId, animeName, coverurl, onReviewAdded }) => {
       date: new Date().toISOString(),
       rate: rate,
       text: text,
-      reccomendation: null, // Можно добавить выбор рекомендации
+      reccomendation: null,
     };
 
     try {
