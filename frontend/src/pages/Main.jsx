@@ -59,7 +59,7 @@ const Main = () => {
     const [anime, setAnime] = useState();
     const [datalength, setTotalDataLength] = useState();
     const handlePageChange = (page) => {
-        if (page > 0 && page <= totalPages) { // Проверяем, что страница в допустимом диапазоне
+        if (page > 0 && page <= totalPages) {
             setCurrentPage(page);
             console.log("Переход на страницу: " + page);
             console.log("Текущая страница: " + currentPage);
