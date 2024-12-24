@@ -3,11 +3,11 @@ import { useParams } from 'react-router-dom';
 import { Form, Button, Spinner, Alert } from "react-bootstrap";
 
 function EditUserForm({ userId, onUpdate }) {
-  const [user, setUser] = useState(null); // Данные пользователя
-  const [loading, setLoading] = useState(true); // Индикатор загрузки
-  const [error, setError] = useState(null); // Ошибки
+  const [user, setUser] = useState(null); 
+  const [loading, setLoading] = useState(true); 
+  const [error, setError] = useState(null); 
   const {id} = useParams();
-  // Загружаем данные пользователя с сервера
+
   useEffect(() => {
     const fetchUserData = async () => {
       try {
