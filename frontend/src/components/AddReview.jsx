@@ -14,7 +14,7 @@ const AddReview = ({ animeId, animeName, coverurl, onReviewAdded }) => {
       userId: userId,
       animeId: animeId,
       animeName: animeName,
-      coverUrl: coverurl, // Добавьте URL постера, если нужно
+      coverUrl: coverurl, 
       date: new Date().toISOString(),
       rate: rate,
       text: text,
