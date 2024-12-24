@@ -226,7 +226,7 @@ const Anime = () => {
 
 
                                     <div>Дата: {review.date.split('T')[0]}</div>
-                                    {/*<div>Оценка: {review.rate}</div>*/}
+                                    {}
                                     <div>{review.text}</div>
                                     {review.userId === sessionStorage.getItem("id") ? 
                                    (<div> 
