@@ -1,14 +1,5 @@
 import React from 'react';
 
-/*const Footer = () => {
-    return (
-        <form className="footer">
-            <button>Назад</button>
-            1-2-3-----------------------------------------------------------------98-99-100
-            <button>Вперед </button>
-        </form>
-    );
-};*/
 
 const Footer = ({ currentPage, totalPages, onPageChange }) => (
     <div className="footer">
