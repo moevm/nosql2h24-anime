@@ -67,7 +67,6 @@ const Main = () => {
     };
 
     useEffect(() => {
-        // Этот эффект будет вызван каждый раз, когда currentPage изменится
         console.log(`Текущая страница изменена на: ${currentPage}`);
         getData();
     }, [currentPage]);
@@ -302,10 +301,6 @@ const Main = () => {
             const data = await response_page.json();
             setAnime(data);
         }
-
-        
-    
-        
 }
 
 export default Main
