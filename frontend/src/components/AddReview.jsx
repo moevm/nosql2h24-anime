@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 const AddReview = ({ animeId, animeName, coverurl, onReviewAdded }) => {
   const [userId, setUserId] = useState(sessionStorage.getItem("id"));
-  const [rate, setRate] = useState(); // Оценка по умолчанию
+  const [rate, setRate] = useState();
   const [text, setText] = useState("");
   const [error, setError] = useState(null);
 
