@@ -19,7 +19,7 @@ const Anime = () => {
     const [users, setUsers] = useState();
     const [reviews, setReviews] = useState([]);
     const [editingReviewId, setEditingReviewId] = useState(null);
-    const [userRating, setUserRating] = useState(0); // Состояние для хранения оценки пользователя
+    const [userRating, setUserRating] = useState(0);
     const [curr_user, setUser] = useState();
 
     useEffect(() => {
