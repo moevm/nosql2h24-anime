@@ -9,7 +9,7 @@ const AddReview = ({ animeId, animeName, coverurl, onReviewAdded }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Создание объекта отзыва
+    
     const review = {
       userId: userId,
       animeId: animeId,
